@@ -1,3 +1,12 @@
+import imgRailFreight from '../assets/services/rail-freight.jpg';
+import imgContainerRail from '../assets/services/container-rail.jpg';
+import imgForwarding from '../assets/services/forwarding.jpg';
+import imgTerminalHandling from '../assets/services/terminal-handling.jpg';
+import imgOversizedCargo from '../assets/services/oversized-cargo.jpg';
+import imgMilitaryTransport from '../assets/services/military-transport.jpg';
+import imgRollingStockRental from '../assets/services/rolling-stock-rental.jpg';
+import imgDrawingsSchemes from '../assets/services/drawings-and-schemes.jpg';
+
 export const services = [
   {
     id: 1,
@@ -9,6 +18,7 @@ export const services = [
       'слежение и розыск грузов',
     ],
     icon: 'train',
+    image: imgRailFreight,
   },
   {
     id: 2,
@@ -20,6 +30,7 @@ export const services = [
       'отслеживание контейнера',
     ],
     icon: 'container',
+    image: imgContainerRail,
   },
   {
     id: 3,
@@ -31,6 +42,7 @@ export const services = [
       'оформление документации',
     ],
     icon: 'expedition',
+    image: imgForwarding,
   },
   {
     id: 4,
@@ -42,6 +54,7 @@ export const services = [
       'упаковка и пломбирование',
     ],
     icon: 'terminal',
+    image: imgTerminalHandling,
   },
   {
     id: 5,
@@ -53,6 +66,7 @@ export const services = [
       'схемы размещения и крепления',
     ],
     icon: 'oversized',
+    image: imgOversizedCargo,
   },
   {
     id: 6,
@@ -64,6 +78,7 @@ export const services = [
       'схемы размещения и крепления',
     ],
     icon: 'military',
+    image: imgMilitaryTransport,
   },
   {
     id: 7,
@@ -75,6 +90,7 @@ export const services = [
       'платформы, цистерны, хопперы',
     ],
     icon: 'rental',
+    image: imgRollingStockRental,
   },
   {
     id: 8,
@@ -86,6 +102,7 @@ export const services = [
       'выбор подвижного состава',
     ],
     icon: 'blueprint',
+    image: imgDrawingsSchemes,
   },
 ];
 

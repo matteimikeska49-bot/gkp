@@ -24,14 +24,16 @@ export default function ServicesSection() {
                 key={service.id} 
                 className="bg-white rounded-2xl border border-card-border overflow-hidden group hover:border-accent/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col h-full"
               >
-                {/* Top Visual Block (Placeholder) */}
+                {/* Top Visual Block */}
                 <div className="h-40 relative bg-graphite overflow-hidden shrink-0">
-                  {/* CSS placeholder patterns (ready to be replaced with <img> later) */}
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.05)_1px,transparent_0)] bg-[size:16px_16px]" />
-                  <div className="absolute top-[30%] left-0 w-full h-px rail-line-h opacity-20" />
-                  <div className="absolute top-[70%] left-0 w-full h-px rail-line-h opacity-20" />
+                  <img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
                   
-                  {/* Gradient Overlay */}
+                  {/* Gradient Overlay for industrial feel and text readability later if needed */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-graphite/90 via-graphite/20 to-transparent mix-blend-multiply" />
                   <div className="absolute inset-0 bg-gradient-to-t from-graphite/90 to-transparent" />
                   
                   {/* Icon */}
