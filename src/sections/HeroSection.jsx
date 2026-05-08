@@ -45,7 +45,7 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="container-main relative z-10 pt-24 pb-14 md:pt-28 md:pb-16 lg:pt-32 lg:pb-20">
+      <div className="container-main relative z-10 pt-22 pb-12 md:pt-24 md:pb-14 lg:pt-28 lg:pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Left: Content — takes 7 cols on desktop */}
           <div className="lg:col-span-7">
@@ -56,7 +56,7 @@ export default function HeroSection() {
               </span>
             </div>
 
-            <h1 className="text-[1.75rem] sm:text-4xl md:text-[2.75rem] lg:text-[3rem] xl:text-[3.25rem] font-bold text-white leading-[1.15] mb-5">
+            <h1 className="text-[1.625rem] sm:text-[2rem] md:text-[2.375rem] lg:text-[2.625rem] xl:text-[2.875rem] font-bold text-white leading-[1.18] mb-5">
               ЖД-перевозки<br className="hidden sm:block" /> и&nbsp;сопровождение груза{' '}
               <span className="text-accent">под&nbsp;ключ</span>
             </h1>
@@ -84,7 +84,7 @@ export default function HeroSection() {
           {/* Right: Form — takes 5 cols on desktop */}
           <div className="lg:col-span-5">
             <div className="w-full max-w-md mx-auto lg:mx-0 lg:ml-auto">
-              <div className="bg-graphite-dark/80 backdrop-blur-lg border border-white/12 rounded-2xl p-6 md:p-7 shadow-2xl">
+              <div className="bg-graphite-dark/75 backdrop-blur-xl border border-white/[0.06] rounded-2xl p-6 md:p-7 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
                 <h2 className="text-white font-bold text-lg md:text-xl mb-5">
                   Рассчитать ЖД-перевозку
                 </h2>
