@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { CheckIcon } from '../components/ui/Icons';
+import ctaBg from '../assets/sections/cta-bg.png';
 
 export default function CTASection() {
   const [formData, setFormData] = useState({
@@ -21,8 +22,18 @@ export default function CTASection() {
 
   return (
     <section id="contact" className="relative bg-graphite section-padding overflow-hidden">
+      {/* Realistic Background Image */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img 
+          src={ctaBg} 
+          alt="Контейнерный терминал" 
+          className="w-full h-full object-cover opacity-[0.25] mix-blend-luminosity"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-graphite via-graphite/90 to-graphite/50" />
+      </div>
+
       {/* Decorative Technical Background */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute top-[30%] left-0 w-full h-px rail-line-h opacity-[0.06]" />
         <div className="absolute bottom-[20%] left-0 w-full h-px rail-line-h opacity-[0.06]" />
         <div className="absolute top-0 left-[20%] w-px h-full rail-line-v opacity-[0.04]" />

@@ -1,5 +1,6 @@
 import { legalPoints } from '../data/services';
 import { ShieldIcon, InsuranceIcon, TaxIcon, FraudIcon } from '../components/ui/Icons';
+import legalBg from '../assets/sections/legal-bg.png';
 
 const iconMap = {
   shield: ShieldIcon,
@@ -13,8 +14,18 @@ const badges = ['Договор', 'НДС', 'Документы', 'Антифр�
 export default function LegalSection() {
   return (
     <section className="relative bg-graphite section-padding overflow-hidden">
+      {/* Realistic Background Image */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img 
+          src={legalBg} 
+          alt="Скоростной грузовой поезд" 
+          className="w-full h-full object-cover opacity-[0.2] mix-blend-luminosity"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-graphite via-graphite/90 to-graphite/80" />
+      </div>
+
       {/* Decorative elements */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute top-0 left-0 w-full h-px rail-line-h opacity-[0.06]" />
         <div className="absolute bottom-0 left-0 w-full h-px rail-line-h opacity-[0.06]" />
         <div className="absolute bottom-0 right-0 w-48 h-48 dot-pattern" />

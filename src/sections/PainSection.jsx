@@ -1,11 +1,23 @@
+import painBg from '../assets/sections/pain-bg.png';
+
 export default function PainSection() {
   return (
-    <section className="relative overflow-hidden bg-graphite-light">
+    <section className="relative overflow-hidden bg-graphite">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={painBg} 
+          alt="Остановленный грузовой поезд" 
+          className="w-full h-full object-cover object-center opacity-40 mix-blend-luminosity"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-graphite via-graphite/80 to-graphite" />
+      </div>
+
       {/* Decorative elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-px rail-line-h opacity-[0.08]" />
-        <div className="absolute bottom-0 left-0 w-full h-px rail-line-h opacity-[0.08]" />
-        <div className="absolute top-1/2 left-[10%] w-64 h-64 bg-accent/5 rounded-full blur-[100px]" />
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute top-0 left-0 w-full h-px rail-line-h opacity-[0.1]" />
+        <div className="absolute bottom-0 left-0 w-full h-px rail-line-h opacity-[0.1]" />
+        <div className="absolute top-1/2 left-[50%] -translate-x-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px]" />
       </div>
 
       <div className="container-main section-padding relative z-10 reveal-up">

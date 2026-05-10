@@ -1,4 +1,5 @@
 import { CheckIcon, WagonIcon } from '../components/ui/Icons';
+import movementPanel from '../assets/sections/movement-panel.png';
 
 const points = [
   'работаем с простоями и «брошенными» поездами',
@@ -56,9 +57,19 @@ export default function MovementSection() {
           {/* Right: Realistic Rail Route Visualization */}
           <div className="lg:col-span-6">
             <div className="bg-graphite rounded-3xl p-8 md:p-10 relative overflow-hidden shadow-2xl">
+              {/* Realistic Background Image */}
+              <div className="absolute inset-0 z-0">
+                <img 
+                  src={movementPanel} 
+                  alt="Грузовой поезд в пути" 
+                  className="w-full h-full object-cover opacity-[0.35] mix-blend-luminosity"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-graphite via-graphite/80 to-graphite/40" />
+              </div>
+
               {/* Background styling inside the card */}
-              <div className="absolute inset-0 dot-pattern opacity-10" />
-              <div className="absolute -top-32 -right-32 w-64 h-64 bg-accent/20 rounded-full blur-[100px] pointer-events-none" />
+              <div className="absolute inset-0 dot-pattern opacity-20 z-0" />
+              <div className="absolute -top-32 -right-32 w-64 h-64 bg-accent/30 rounded-full blur-[100px] pointer-events-none" />
 
               <div className="relative z-10 flex flex-col sm:flex-row gap-8 sm:gap-12 justify-between">
                 
