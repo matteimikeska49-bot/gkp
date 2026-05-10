@@ -28,13 +28,7 @@ export default function ServicesSection() {
     setTimeout(() => {
       const el = document.querySelector('#contact');
       if (el) {
-        const headerOffset = 80;
-        const elementPosition = el.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
+        el.scrollIntoView({ behavior: 'smooth' });
       }
     }, 100);
   };

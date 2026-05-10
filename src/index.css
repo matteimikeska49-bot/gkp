@@ -12,9 +12,15 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem; /* Account for sticky header */
+    scroll-padding-top: 6rem; /* Account for sticky header on mobile */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      scroll-padding-top: 7rem; /* Account for sticky header on desktop */
+    }
   }
 
   body {

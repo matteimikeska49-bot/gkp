@@ -45,7 +45,7 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="container-main relative z-10 pt-22 pb-12 md:pt-24 md:pb-14 lg:pt-28 lg:pb-16 reveal-up is-revealed">
+      <div className="container-main relative z-10 pt-32 pb-12 md:pt-36 md:pb-14 lg:pt-40 lg:pb-16 reveal-up is-revealed">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Left: Content — takes 7 cols on desktop */}
           <div className="lg:col-span-7">

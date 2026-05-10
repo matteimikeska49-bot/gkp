@@ -35,15 +35,7 @@ export default function Header() {
     setTimeout(() => {
       const el = document.querySelector(href);
       if (el) {
-        // Offset for the fixed header
-        const headerOffset = 80;
-        const elementPosition = el.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-  
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
+        el.scrollIntoView({ behavior: 'smooth' });
       }
     }, 100);
   };
