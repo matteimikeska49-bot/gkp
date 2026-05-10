@@ -3,39 +3,45 @@ import { DocumentIcon, RouteIcon, TerminalIcon, WagonIcon, EyeIcon, CheckIcon } 
 const steps = [
   { 
     id: '01', 
-    title: 'Заявка', 
-    text: 'Вы оставляете параметры груза, маршрут, вес, объём и сроки.',
+    title: 'Заявка и договор', 
+    badge: '1 день',
+    text: 'Принимаем заявку, рассчитываем калькуляцию и заключаем договор.',
     icon: DocumentIcon,
   },
   { 
     id: '02', 
-    title: 'Расчёт', 
-    text: 'Рассчитываем маршрут, тариф, подвижной состав и сопутствующие расходы.',
+    title: 'Схемы и ГУ-12', 
+    badge: '1–2 дня',
+    text: 'Разрабатываем и согласовываем схемы погрузки, МТУ/НТУ при необходимости, оформляем заявку на отправку по форме ГУ-12.',
     icon: RouteIcon,
   },
   { 
     id: '03', 
-    title: 'Подготовка', 
-    text: 'Оформляем документы, схемы размещения и крепления, МТУ/НТУ, если требуется.',
+    title: 'Подвижной состав', 
+    badge: '1–2 дня',
+    text: 'Организуем подсыл подвижного состава, подготовку к погрузке и страхование груза при необходимости.',
     icon: TerminalIcon,
   },
   { 
     id: '04', 
-    title: 'Погрузка', 
-    text: 'Организуем подачу, погрузку, крепление, упаковку и пломбирование груза.',
+    title: 'Погрузка и отправка', 
+    badge: '1–2 дня',
+    text: 'Организуем доставку до ЖД-станции, погрузку в вагон, оплату тарифа и сборов, крепление, упаковку и пломбировку.',
     icon: WagonIcon,
   },
   { 
     id: '05', 
     title: 'Перевозка', 
-    text: 'Сопровождаем груз в пути следования и информируем о местонахождении.',
+    badge: 'По сети ОАО «РЖД»',
+    text: 'Сопровождаем груз в пути следования, отслеживаем движение и информируем о местонахождении.',
     icon: EyeIcon,
     isActive: true,
   },
   { 
     id: '06', 
-    title: 'Документы', 
-    text: 'Передаём закрывающие и сопроводительные документы для бухгалтерии и внутреннего контроля.',
+    title: 'Документы и выдача', 
+    badge: 'Финальный этап',
+    text: 'Передаём закрывающие и сопроводительные документы для бухгалтерии и внутреннего контроля. При необходимости организуем раскрепление и доставку до склада.',
     icon: CheckIcon,
   },
 ];
@@ -65,7 +71,7 @@ export default function ProcessSection() {
         <div className="max-w-5xl mx-auto relative pb-2 md:pb-10">
           
           {/* Central Railway Track */}
-          <div className="absolute left-[39px] md:left-[50%] md:-ml-[5px] top-4 bottom-12 md:bottom-4 w-[10px] z-0">
+          <div className="absolute left-[39px] md:left-[50%] md:-ml-[5px] top-4 bottom-[4.5rem] md:bottom-8 w-[10px] z-0">
             <div className="absolute left-0 top-0 bottom-0 w-px bg-card-border" />
             <div className="absolute right-0 top-0 bottom-0 w-px bg-card-border" />
             {/* Ties */}
@@ -92,12 +98,19 @@ export default function ProcessSection() {
                         {step.id}
                       </span>
                       <div className="relative z-10">
-                        <h3 className="font-bold text-text-dark text-lg mb-2 flex items-center gap-3 justify-start md:justify-start">
-                          {isEven && <span className="hidden md:inline-block w-6 h-6"><Icon className="w-full h-full text-accent" /></span>}
-                          {step.title}
-                          {!isEven && <span className="hidden md:inline-block w-6 h-6"><Icon className="w-full h-full text-accent" /></span>}
-                          <span className="md:hidden w-5 h-5"><Icon className="w-full h-full text-accent" /></span>
-                        </h3>
+                        <div className="flex flex-col xl:flex-row xl:items-center justify-between mb-2 md:mb-3 gap-2">
+                          <h3 className="font-bold text-text-dark text-base md:text-lg flex items-center gap-2 md:gap-3 justify-start md:justify-start">
+                            {isEven && <span className="hidden md:inline-block w-5 h-5 md:w-6 md:h-6 shrink-0"><Icon className="w-full h-full text-accent" /></span>}
+                            {step.title}
+                            {!isEven && <span className="hidden md:inline-block w-5 h-5 md:w-6 md:h-6 shrink-0"><Icon className="w-full h-full text-accent" /></span>}
+                            <span className="md:hidden w-4 h-4 shrink-0"><Icon className="w-full h-full text-accent" /></span>
+                          </h3>
+                          {step.badge && (
+                            <span className={`inline-block self-start xl:self-auto whitespace-nowrap text-[10px] font-bold uppercase tracking-wider px-2 py-1 md:px-2.5 md:py-1 rounded md:rounded-md ${isActive ? 'bg-accent/10 border border-accent/20 text-accent' : 'bg-section-light border border-card-border text-text-muted'}`}>
+                              {step.badge}
+                            </span>
+                          )}
+                        </div>
                         <p className="text-text-muted text-sm leading-relaxed">
                           {step.text}
                         </p>
@@ -131,58 +144,10 @@ export default function ProcessSection() {
           </div>
         </div>
 
-        {/* Fast Dispatch Accent Block */}
-        <div className="max-w-5xl mx-auto mt-12 md:mt-16 bg-section-alt border border-card-border rounded-2xl md:rounded-3xl p-6 md:p-8 relative overflow-hidden reveal-up shadow-sm">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-          
-          <div className="relative z-10 flex flex-col lg:flex-row gap-6 lg:gap-10 items-start">
-            <div className="lg:w-1/3">
-              <h3 className="text-xl md:text-2xl font-bold text-text-dark mb-3">
-                Запуск отправки за 3 дня
-              </h3>
-              <p className="text-text-muted text-sm md:text-base leading-relaxed">
-                Параллельно запускаем расчёт, договор, схемы погрузки, подсыл подвижного состава и подготовку к отправке, чтобы груз быстрее вышел на маршрут.
-              </p>
-            </div>
-
-            <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
-              {/* Card 1 */}
-              <div className="bg-white border border-card-border rounded-xl p-4 md:p-5 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
-                <div className="inline-block bg-accent/10 border border-accent/20 text-accent font-bold text-[10px] md:text-xs px-2.5 py-1 rounded md:rounded-md uppercase tracking-wider mb-3">1 день</div>
-                <ul className="space-y-2">
-                  <li className="text-text-dark text-sm font-medium flex gap-2"><span className="text-accent/60">•</span> Заявка</li>
-                  <li className="text-text-dark text-sm font-medium flex gap-2"><span className="text-accent/60">•</span> Расчёт</li>
-                  <li className="text-text-dark text-sm font-medium flex gap-2"><span className="text-accent/60">•</span> Договор</li>
-                </ul>
-              </div>
-              
-              {/* Card 2 */}
-              <div className="bg-white border border-card-border rounded-xl p-4 md:p-5 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
-                <div className="inline-block bg-accent/10 border border-accent/20 text-accent font-bold text-[10px] md:text-xs px-2.5 py-1 rounded md:rounded-md uppercase tracking-wider mb-3">1–2 дня</div>
-                <ul className="space-y-2">
-                  <li className="text-text-dark text-sm font-medium flex gap-2"><span className="text-accent/60">•</span> Схемы МТУ / НТУ</li>
-                  <li className="text-text-dark text-sm font-medium flex gap-2"><span className="text-accent/60">•</span> Заявка ГУ-12</li>
-                  <li className="text-text-dark text-sm font-medium flex gap-2"><span className="text-accent/60">•</span> Подсыл состава</li>
-                </ul>
-              </div>
-
-              {/* Card 3 */}
-              <div className="bg-white border border-card-border rounded-xl p-4 md:p-5 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
-                <div className="inline-block bg-accent/10 border border-accent/20 text-accent font-bold text-[10px] md:text-xs px-2.5 py-1 rounded md:rounded-md uppercase tracking-wider mb-3">1–2 дня</div>
-                <ul className="space-y-2">
-                  <li className="text-text-dark text-sm font-medium flex gap-2"><span className="text-accent/60">•</span> Доставка до станции</li>
-                  <li className="text-text-dark text-sm font-medium flex gap-2"><span className="text-accent/60">•</span> Погрузка</li>
-                  <li className="text-text-dark text-sm font-medium flex gap-2"><span className="text-accent/60">•</span> Крепление и пломбировка</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          
-          <div className="relative z-10 mt-6 lg:mt-8 pt-4 lg:pt-5 border-t border-card-border">
-             <p className="text-text-muted text-[10px] md:text-xs leading-relaxed">
-                * Сроки могут уменьшаться или увеличиваться в зависимости от условий предприятия, станции отправления и характера перевозимого груза.
-             </p>
-          </div>
+        <div className="max-w-3xl mx-auto mt-6 md:mt-8 flex justify-center text-center px-4">
+          <p className="text-text-muted/60 text-[10px] md:text-xs leading-relaxed">
+            * Сроки могут уменьшаться или увеличиваться в зависимости от условий предприятия, станции отправления и характера перевозимого груза.
+          </p>
         </div>
 
       </div>
