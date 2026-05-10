@@ -11,7 +11,7 @@ const points = [
 export default function MovementSection() {
   return (
     <section className="bg-white section-padding">
-      <div className="container-main">
+      <div className="container-main reveal-up">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: Decorative route visualization */}
           <div className="relative">

@@ -19,7 +19,7 @@ export default function LegalSection() {
         <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-accent/5 rounded-full blur-[100px]" />
       </div>
 
-      <div className="container-main relative z-10">
+      <div className="container-main relative z-10 reveal-up">
         <div className="text-center mb-12 md:mb-16">
           <div className="accent-line mx-auto mb-4" />
           <h2 className="text-3xl md:text-4xl font-bold text-white">
@@ -36,7 +36,7 @@ export default function LegalSection() {
             return (
               <div
                 key={i}
-                className="bg-white/[0.04] border border-white/10 rounded-xl p-6 hover:border-accent/30 transition-all duration-300 group"
+                className="bg-white/[0.04] border border-white/10 rounded-xl p-6 hover:border-accent/30 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group"
               >
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">

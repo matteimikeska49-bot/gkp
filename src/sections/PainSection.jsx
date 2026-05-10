@@ -8,7 +8,7 @@ export default function PainSection() {
         <div className="absolute top-1/2 left-[10%] w-64 h-64 bg-accent/5 rounded-full blur-[100px]" />
       </div>
 
-      <div className="container-main section-padding relative z-10">
+      <div className="container-main section-padding relative z-10 reveal-up">
         <div className="max-w-4xl mx-auto text-center">
           {/* Red accent line */}
           <div className="accent-line mx-auto mb-6" />

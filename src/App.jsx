@@ -11,12 +11,15 @@ import LegalSection from './sections/LegalSection';
 import ProcessSection from './sections/ProcessSection';
 import WhyUsSection from './sections/WhyUsSection';
 import CTASection from './sections/CTASection';
+import { useReveal } from './hooks/useReveal';
 
 export default function App() {
+  const revealRef = useReveal();
+
   return (
     <div className="min-h-screen">
       <Header />
-      <main>
+      <main ref={revealRef}>
         <HeroSection />
         <AdvantagesStrip />
         <PainSection />

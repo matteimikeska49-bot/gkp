@@ -4,7 +4,7 @@ import { CheckIcon } from '../components/ui/Icons';
 export default function WhyUsSection() {
   return (
     <section id="why-us" className="bg-white section-padding">
-      <div className="container-main">
+      <div className="container-main reveal-up">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: Content */}
           <div>
@@ -23,7 +23,7 @@ export default function WhyUsSection() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {whyUsPoints.map((point, i) => (
-                <div key={i} className="flex items-center gap-3 bg-section-light rounded-lg px-4 py-3 border border-card-border">
+                <div key={i} className="flex items-center gap-3 bg-section-light rounded-lg px-4 py-3 border border-card-border hover:border-accent/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300">
                   <CheckIcon className="w-4 h-4 text-accent flex-shrink-0" />
                   <span className="text-text-dark text-sm font-medium">{point}</span>
                 </div>

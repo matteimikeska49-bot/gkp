@@ -45,7 +45,7 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="container-main relative z-10 pt-22 pb-12 md:pt-24 md:pb-14 lg:pt-28 lg:pb-16">
+      <div className="container-main relative z-10 pt-22 pb-12 md:pt-24 md:pb-14 lg:pt-28 lg:pb-16 reveal-up is-revealed">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Left: Content — takes 7 cols on desktop */}
           <div className="lg:col-span-7">
@@ -97,7 +97,7 @@ export default function HeroSection() {
                       placeholder="Откуда"
                       value={formData.from}
                       onChange={handleChange}
-                      className="w-full bg-white/[0.07] border border-white/12 rounded-lg px-4 py-2.5 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-accent/50 transition-colors"
+                      className="form-input-dark text-sm py-2.5"
                     />
                     <input
                       type="text"
@@ -105,7 +105,7 @@ export default function HeroSection() {
                       placeholder="Куда"
                       value={formData.to}
                       onChange={handleChange}
-                      className="w-full bg-white/[0.07] border border-white/12 rounded-lg px-4 py-2.5 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-accent/50 transition-colors"
+                      className="form-input-dark text-sm py-2.5"
                     />
                   </div>
                   <input
@@ -123,7 +123,7 @@ export default function HeroSection() {
                       placeholder="Вес / объём"
                       value={formData.weight}
                       onChange={handleChange}
-                      className="w-full bg-white/[0.07] border border-white/12 rounded-lg px-4 py-2.5 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-accent/50 transition-colors"
+                      className="form-input-dark text-sm py-2.5"
                     />
                     <input
                       type="tel"
@@ -131,7 +131,7 @@ export default function HeroSection() {
                       placeholder="Телефон"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full bg-white/[0.07] border border-white/12 rounded-lg px-4 py-2.5 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-accent/50 transition-colors"
+                      className="form-input-dark text-sm py-2.5"
                     />
                   </div>
 

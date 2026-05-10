@@ -3,7 +3,7 @@ import { processSteps } from '../data/services';
 export default function ProcessSection() {
   return (
     <section id="process" className="bg-section-light section-padding">
-      <div className="container-main">
+      <div className="container-main reveal-up">
         <div className="text-center mb-12 md:mb-16">
           <div className="accent-line mx-auto mb-4" />
           <h2 className="section-title">

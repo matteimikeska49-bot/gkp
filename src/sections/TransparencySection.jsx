@@ -10,7 +10,7 @@ const points = [
 export default function TransparencySection() {
   return (
     <section className="bg-white section-padding">
-      <div className="container-main">
+      <div className="container-main reveal-up">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: Content */}
           <div>
@@ -43,7 +43,7 @@ export default function TransparencySection() {
 
           {/* Right: Decorative dashboard mockup */}
           <div className="relative">
-            <div className="bg-section-light rounded-2xl border border-card-border p-6 md:p-8">
+            <div className="bg-section-light rounded-2xl border border-card-border p-6 md:p-8 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:border-accent/20 hover:-translate-y-1 transition-all duration-300">
               {/* Dashboard header */}
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">

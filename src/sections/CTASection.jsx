@@ -30,7 +30,7 @@ export default function CTASection() {
         <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[120px]" />
       </div>
 
-      <div className="container-main relative z-10">
+      <div className="container-main relative z-10 reveal-up">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           {/* Left: Content */}
           <div className="lg:pt-8">
@@ -77,7 +77,7 @@ export default function CTASection() {
                   placeholder="Имя"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full bg-white/[0.06] border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-accent/50 transition-colors"
+                  className="form-input-dark text-sm py-3"
                 />
                 <input
                   type="text"
@@ -85,7 +85,7 @@ export default function CTASection() {
                   placeholder="Компания"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full bg-white/[0.06] border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-accent/50 transition-colors"
+                  className="form-input-dark text-sm py-3"
                 />
               </div>
 
@@ -105,7 +105,7 @@ export default function CTASection() {
                   placeholder="Станция отправления"
                   value={formData.stationFrom}
                   onChange={handleChange}
-                  className="w-full bg-white/[0.06] border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-accent/50 transition-colors"
+                  className="form-input-dark text-sm py-3"
                 />
                 <input
                   type="text"
@@ -113,7 +113,7 @@ export default function CTASection() {
                   placeholder="Станция назначения"
                   value={formData.stationTo}
                   onChange={handleChange}
-                  className="w-full bg-white/[0.06] border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-accent/50 transition-colors"
+                  className="form-input-dark text-sm py-3"
                 />
               </div>
 
@@ -132,7 +132,7 @@ export default function CTASection() {
                 rows={3}
                 value={formData.comment}
                 onChange={handleChange}
-                className="w-full bg-white/[0.06] border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-accent/50 transition-colors resize-none"
+                className="form-input-dark text-sm py-3 resize-none"
               />
 
               <button

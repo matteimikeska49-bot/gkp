@@ -22,7 +22,7 @@ const advantages = [
 export default function AdvantagesStrip() {
   return (
     <section className="bg-white border-b border-card-border">
-      <div className="container-main py-6 md:py-8">
+      <div className="container-main py-6 md:py-8 reveal-up">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {advantages.map((item, i) => {
             const IconComponent = item.icon;

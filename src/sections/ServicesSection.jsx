@@ -4,7 +4,7 @@ import { serviceIconMap } from '../components/ui/Icons';
 export default function ServicesSection() {
   return (
     <section id="services" className="bg-section-light section-padding">
-      <div className="container-main">
+      <div className="container-main reveal-up">
         {/* Header */}
         <div className="mb-12 md:mb-16">
           <div className="accent-line mb-4" />
