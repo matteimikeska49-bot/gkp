@@ -22,26 +22,26 @@ export default function TransparencySection() {
           
           {/* Left: Content */}
           <div className="lg:pr-6">
-            <div className="accent-line mb-6" />
+            <div className="accent-line mb-5" />
             
-            <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-text-dark leading-tight mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-[2.25rem] xl:text-[2.75rem] font-bold text-text-dark leading-tight mb-5">
               Цифровая прозрачность:<br className="hidden lg:block"/>{' '}
-              <span className="text-accent">вы видите то же, что и мы</span>
+              <span className="text-accent">вы&nbsp;видите то&nbsp;же, что&nbsp;и&nbsp;мы</span>
             </h2>
 
-            <p className="text-text-dark text-lg md:text-xl font-bold mb-4 leading-relaxed">
+            <p className="text-text-dark text-lg md:text-xl font-bold mb-3 leading-relaxed">
               Забудьте про Excel-отчеты вчерашней давности.
             </p>
 
-            <p className="text-text-muted text-base md:text-lg mb-8 leading-relaxed font-medium">
+            <p className="text-text-muted text-base md:text-lg mb-6 leading-relaxed font-medium">
               Мы предоставляем информацию о местонахождении груза в пути следования, сопровождаем перевозку и держим клиента в курсе статуса отправки.
             </p>
 
-            <ul className="space-y-3">
+            <ul className="space-y-2.5">
               {points.map((point, i) => (
-                <li key={i} className="flex items-center gap-4 bg-white border border-card-border rounded-xl px-5 py-4 shadow-sm hover:border-accent/30 transition-colors group">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
-                    <CheckIcon className="w-3.5 h-3.5 text-accent group-hover:text-white transition-colors" />
+                <li key={i} className="flex items-center gap-3.5 bg-white border border-card-border rounded-xl px-4 py-3 shadow-sm hover:border-accent/30 transition-colors group">
+                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
+                    <CheckIcon className="w-3 h-3 text-accent group-hover:text-white transition-colors" />
                   </div>
                   <span className="text-text-dark text-sm md:text-base font-semibold">{point}</span>
                 </li>
