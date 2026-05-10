@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { CheckIcon } from '../components/ui/Icons';
 
 export default function CTASection() {
   const [formData, setFormData] = useState({
@@ -22,131 +23,149 @@ export default function CTASection() {
 
   return (
     <section id="contact" className="relative bg-graphite section-padding overflow-hidden">
-      {/* Decorative elements */}
+      {/* Decorative Technical Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[30%] left-0 w-full h-px rail-line-h opacity-[0.06]" />
-        <div className="absolute bottom-[20%] left-0 w-full h-px rail-line-h opacity-[0.04]" />
-        <div className="absolute top-0 left-[20%] w-px h-full rail-line-v opacity-[0.03]" />
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[20%] left-0 w-full h-px rail-line-h opacity-[0.06]" />
+        <div className="absolute top-0 left-[20%] w-px h-full rail-line-v opacity-[0.04]" />
+        <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[140px]" />
       </div>
 
       <div className="container-main relative z-10 reveal-up">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          
           {/* Left: Content */}
-          <div className="lg:pt-8">
+          <div className="lg:col-span-6 lg:pr-8">
             <div className="accent-line mb-6" />
             <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-white leading-tight mb-6">
               Ваш маршрут может стоить{' '}
-              <span className="text-accent">дешевле</span> и ехать{' '}
-              <span className="text-accent">быстрее</span>
+              <span className="text-accent relative inline-block">
+                дешевле
+                <div className="absolute -bottom-1 left-0 w-full h-[3px] bg-accent/30 rounded-full" />
+              </span>{' '}
+              и ехать{' '}
+              <span className="text-accent relative inline-block">
+                быстрее
+                <div className="absolute -bottom-1 left-0 w-full h-[3px] bg-accent/30 rounded-full" />
+              </span>
             </h2>
 
-            <p className="text-white/60 text-lg leading-relaxed mb-8">
-              Мы проведем аудит ваших текущих отправок и найдем узкие места, где вы теряете деньги
-              на простоях.
+            <p className="text-white/70 text-lg leading-relaxed mb-10 font-medium">
+              Мы проведем аудит ваших текущих отправок и найдем узкие места, где вы теряете деньги на простоях.
             </p>
 
-            {/* Trust indicators */}
+            {/* Checklist / Thesis */}
             <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-accent rounded-full" />
-                <span className="text-white/50 text-sm">Полный расчёт за 2 часа</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-accent rounded-full" />
-                <span className="text-white/50 text-sm">Без скрытых комиссий</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-accent rounded-full" />
-                <span className="text-white/50 text-sm">Прозрачное ценообразование</span>
-              </div>
+              {[
+                'Покажем, где теряются деньги на простоях',
+                'Рассчитаем маршрут и тариф',
+                'Подскажем, как сократить лишние расходы',
+              ].map((text, idx) => (
+                <div key={idx} className="flex items-start gap-3 bg-white/[0.03] border border-white/5 rounded-lg p-4 transition-colors hover:bg-white/[0.05]">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center mt-0.5">
+                    <CheckIcon className="w-3.5 h-3.5 text-accent" />
+                  </div>
+                  <span className="text-white/80 text-base font-medium leading-snug">{text}</span>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Right: Form */}
-          <div className="bg-white/[0.06] backdrop-blur-md border border-white/10 rounded-2xl p-6 md:p-8">
-            <h3 className="text-white font-bold text-xl mb-6">
-              Получить план оптимизации и расчет тарифа за 2 часа
-            </h3>
+          <div className="lg:col-span-6 relative">
+            {/* Form Glow */}
+            <div className="absolute inset-0 bg-accent/10 rounded-3xl blur-[80px] pointer-events-none" />
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Имя"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="form-input-dark text-sm py-3"
-                />
-                <input
-                  type="text"
-                  name="company"
-                  placeholder="Компания"
-                  value={formData.company}
-                  onChange={handleChange}
-                  className="form-input-dark text-sm py-3"
-                />
+            <div className="relative bg-[#1A1A1A]/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-10 shadow-2xl">
+              <div className="mb-6 flex items-center justify-between">
+                <h3 className="text-white font-bold text-xl">
+                  Заявка на расчёт
+                </h3>
+                <div className="w-12 h-px bg-accent/50" />
               </div>
 
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Телефон"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full bg-white/[0.06] border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-accent/50 transition-colors"
-              />
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Имя"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="form-input-dark text-sm py-3.5"
+                  />
+                  <input
+                    type="text"
+                    name="company"
+                    placeholder="Компания"
+                    value={formData.company}
+                    onChange={handleChange}
+                    className="form-input-dark text-sm py-3.5"
+                  />
+                </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Телефон"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="form-input-dark text-sm py-3.5 w-full"
+                />
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <input
+                    type="text"
+                    name="stationFrom"
+                    placeholder="Станция отправления"
+                    value={formData.stationFrom}
+                    onChange={handleChange}
+                    className="form-input-dark text-sm py-3.5"
+                  />
+                  <input
+                    type="text"
+                    name="stationTo"
+                    placeholder="Станция назначения"
+                    value={formData.stationTo}
+                    onChange={handleChange}
+                    className="form-input-dark text-sm py-3.5"
+                  />
+                </div>
+
                 <input
                   type="text"
-                  name="stationFrom"
-                  placeholder="Станция отправления"
-                  value={formData.stationFrom}
+                  name="cargoType"
+                  placeholder="Тип груза"
+                  value={formData.cargoType}
                   onChange={handleChange}
-                  className="form-input-dark text-sm py-3"
+                  className="form-input-dark text-sm py-3.5 w-full"
                 />
-                <input
-                  type="text"
-                  name="stationTo"
-                  placeholder="Станция назначения"
-                  value={formData.stationTo}
+
+                <textarea
+                  name="comment"
+                  placeholder="Комментарий"
+                  rows={3}
+                  value={formData.comment}
                   onChange={handleChange}
-                  className="form-input-dark text-sm py-3"
+                  className="form-input-dark text-sm py-3.5 resize-none w-full"
                 />
-              </div>
 
-              <input
-                type="text"
-                name="cargoType"
-                placeholder="Тип груза"
-                value={formData.cargoType}
-                onChange={handleChange}
-                className="w-full bg-white/[0.06] border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/40 text-sm focus:outline-none focus:border-accent/50 transition-colors"
-              />
-
-              <textarea
-                name="comment"
-                placeholder="Комментарий"
-                rows={3}
-                value={formData.comment}
-                onChange={handleChange}
-                className="form-input-dark text-sm py-3 resize-none"
-              />
-
-              <button
-                type="submit"
-                className="w-full btn-primary py-3.5 text-base font-semibold"
-              >
-                Получить план оптимизации и расчет тарифа за 2 часа
-              </button>
-            </form>
-
-            <p className="text-white/40 text-xs text-center mt-4">
-              Ответим в течение 15 минут
-            </p>
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    className="w-full btn-primary py-4 text-base font-bold shadow-[0_0_20px_rgba(215,25,32,0.3)] hover:shadow-[0_0_30px_rgba(215,25,32,0.5)] transition-all duration-300"
+                  >
+                    Получить план оптимизации и расчет тарифа за 2 часа
+                  </button>
+                  <p className="text-white/40 text-xs text-center mt-4 flex items-center justify-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                    Ответим в течение 15 минут
+                  </p>
+                </div>
+              </form>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
