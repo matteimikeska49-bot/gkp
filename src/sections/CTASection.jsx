@@ -4,11 +4,9 @@ import { CheckIcon } from '../components/ui/Icons';
 export default function CTASection() {
   const [formData, setFormData] = useState({
     name: '',
-    company: '',
     phone: '',
-    stationFrom: '',
-    stationTo: '',
-    cargoType: '',
+    company: '',
+    route: '',
     comment: '',
   });
 
@@ -84,8 +82,8 @@ export default function CTASection() {
                 <div className="w-12 h-px bg-accent/50" />
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-3">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input
                     type="text"
                     name="name"
@@ -95,6 +93,17 @@ export default function CTASection() {
                     className="form-input-dark text-sm py-3.5"
                   />
                   <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Телефон"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="form-input-dark text-sm py-3.5 w-full"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <input
                     type="text"
                     name="company"
                     placeholder="Компания"
@@ -102,44 +111,15 @@ export default function CTASection() {
                     onChange={handleChange}
                     className="form-input-dark text-sm py-3.5"
                   />
-                </div>
-
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Телефон"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="form-input-dark text-sm py-3.5 w-full"
-                />
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <input
                     type="text"
-                    name="stationFrom"
-                    placeholder="Станция отправления"
-                    value={formData.stationFrom}
+                    name="route"
+                    placeholder="Маршрут / что везти"
+                    value={formData.route}
                     onChange={handleChange}
-                    className="form-input-dark text-sm py-3.5"
-                  />
-                  <input
-                    type="text"
-                    name="stationTo"
-                    placeholder="Станция назначения"
-                    value={formData.stationTo}
-                    onChange={handleChange}
-                    className="form-input-dark text-sm py-3.5"
+                    className="form-input-dark text-sm py-3.5 w-full"
                   />
                 </div>
-
-                <input
-                  type="text"
-                  name="cargoType"
-                  placeholder="Тип груза"
-                  value={formData.cargoType}
-                  onChange={handleChange}
-                  className="form-input-dark text-sm py-3.5 w-full"
-                />
 
                 <textarea
                   name="comment"
@@ -150,16 +130,16 @@ export default function CTASection() {
                   className="form-input-dark text-sm py-3.5 resize-none w-full"
                 />
 
-                <div className="pt-2">
+                <div className="pt-3">
                   <button
                     type="submit"
                     className="w-full btn-primary py-4 text-base font-bold shadow-[0_0_20px_rgba(215,25,32,0.3)] hover:shadow-[0_0_30px_rgba(215,25,32,0.5)] transition-all duration-300"
                   >
-                    Получить план оптимизации и расчет тарифа за 2 часа
+                    Получить расчёт и план оптимизации
                   </button>
-                  <p className="text-white/40 text-xs text-center mt-4 flex items-center justify-center gap-2">
+                  <p className="text-white/40 text-[13px] text-center mt-4 flex items-center justify-center gap-2">
                     <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                    Ответим в течение 15 минут
+                    Ответим в течение 15 минут. Расчёт и план — до 2 часов.
                   </p>
                 </div>
               </form>
