@@ -1,4 +1,4 @@
-import { CheckIcon, EyeIcon } from '../components/ui/Icons';
+import { CheckIcon } from '../components/ui/Icons';
 
 const points = [
   'контроль движения груза',
@@ -15,12 +15,12 @@ export default function TransparencySection() {
           {/* Left: Content */}
           <div>
             <div className="accent-line mb-4" />
-            <h2 className="section-title mb-2">
+            <h2 className="section-title mb-4">
               Цифровая прозрачность:{' '}
               <span className="text-accent">вы видите то же, что и мы</span>
             </h2>
 
-            <p className="text-text-muted text-lg mb-2 leading-relaxed font-medium">
+            <p className="text-text-dark text-lg mb-3 leading-relaxed font-semibold">
               Забудьте про Excel-отчеты вчерашней давности.
             </p>
 
@@ -29,68 +29,91 @@ export default function TransparencySection() {
               перевозку и держим клиента в курсе статуса отправки.
             </p>
 
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {points.map((point, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center mt-0.5">
-                    <CheckIcon className="w-3.5 h-3.5 text-accent" />
+                <li key={i} className="flex items-center gap-3 bg-section-light border border-card-border rounded-lg px-4 py-3">
+                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center">
+                    <CheckIcon className="w-3 h-3 text-accent" />
                   </div>
-                  <span className="text-text-dark text-base leading-relaxed">{point}</span>
+                  <span className="text-text-dark text-sm font-medium">{point}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Right: Decorative dashboard mockup */}
+          {/* Right: Realistic Status Card */}
           <div className="relative">
-            <div className="bg-section-light rounded-2xl border border-card-border p-6 md:p-8 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:border-accent/20 hover:-translate-y-1 transition-all duration-300">
-              {/* Dashboard header */}
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-3">
-                  <EyeIcon className="w-5 h-5 text-accent" />
-                  <span className="font-semibold text-text-dark text-sm">Статус отправки</span>
+            <div className="bg-white rounded-2xl border border-card-border p-6 shadow-lg shadow-graphite/5 max-w-md mx-auto lg:ml-auto lg:mr-0">
+              
+              {/* Card Header */}
+              <div className="flex items-start justify-between mb-6 pb-5 border-b border-card-border">
+                <div>
+                  <h3 className="font-bold text-text-dark text-lg leading-none mb-2">Статус перевозки</h3>
+                  <div className="text-xs text-text-muted flex items-center gap-2">
+                    <span>Обновлено: 15 минут назад</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                  <span className="text-xs text-green-600 font-medium">В пути</span>
+                <div className="bg-green-50 border border-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                  В пути
                 </div>
               </div>
 
-              {/* Status cards */}
-              <div className="space-y-3">
-                <div className="bg-white rounded-lg p-4 border border-card-border">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-text-muted uppercase tracking-wider">Маршрут</span>
-                    <span className="text-xs text-accent font-medium">Активный</span>
+              {/* Route Visualization */}
+              <div className="mb-6 bg-section-light rounded-xl p-5 border border-card-border/50 relative overflow-hidden">
+                {/* Decorative background grid */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:12px_12px]" />
+                
+                <div className="relative z-10">
+                  <div className="flex justify-between text-[10px] text-text-muted mb-2 font-bold uppercase tracking-wider">
+                    <span>Отправление</span>
+                    <span>Назначение</span>
                   </div>
-                  <div className="flex items-center gap-3 mt-2">
-                    <span className="text-sm font-semibold text-text-dark">Москва</span>
-                    <div className="flex-1 h-px bg-accent/30 relative">
-                      <div className="absolute top-1/2 left-[60%] -translate-y-1/2 w-2 h-2 bg-accent rounded-full" />
+                  
+                  <div className="flex items-center gap-3 relative">
+                    <div className="font-bold text-text-dark text-sm">Москва</div>
+                    <div className="flex-1 relative flex items-center py-2">
+                      <div className="w-full h-[2px] bg-card-border" />
+                      <div className="absolute left-[60%] -translate-x-1/2">
+                        <div className="w-3 h-3 bg-white border-[2.5px] border-accent rounded-full shadow-sm" />
+                      </div>
                     </div>
-                    <span className="text-sm font-semibold text-text-dark">Владивосток</span>
+                    <div className="font-bold text-text-dark text-sm">Владивосток</div>
                   </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-white rounded-lg p-4 border border-card-border">
-                    <span className="text-xs text-text-muted uppercase tracking-wider block">Вагон</span>
-                    <span className="text-sm font-semibold text-text-dark mt-1 block">Полувагон</span>
+                  
+                  <div className="mt-4 flex justify-center">
+                    <div className="inline-flex flex-col items-center">
+                      <span className="text-[10px] text-text-muted uppercase tracking-wider font-semibold mb-0.5">Текущая станция</span>
+                      <span className="text-sm font-bold text-accent">Новосибирск-Главный</span>
+                    </div>
                   </div>
-                  <div className="bg-white rounded-lg p-4 border border-card-border">
-                    <span className="text-xs text-text-muted uppercase tracking-wider block">Документы</span>
-                    <span className="text-sm font-semibold text-green-600 mt-1 block">Готовы ✓</span>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-lg p-4 border border-card-border">
-                  <span className="text-xs text-text-muted uppercase tracking-wider block">Текущая позиция</span>
-                  <span className="text-sm font-semibold text-text-dark mt-1 block">Новосибирск-Главный</span>
-                  <span className="text-xs text-text-muted mt-1 block">Обновлено 15 мин назад</span>
                 </div>
               </div>
+
+              {/* Details List */}
+              <div className="space-y-0.5">
+                <div className="flex items-center justify-between text-sm py-3 border-b border-card-border/50">
+                  <span className="text-text-muted">Подвижной состав</span>
+                  <span className="font-semibold text-text-dark">Полувагон</span>
+                </div>
+                <div className="flex items-center justify-between text-sm py-3 border-b border-card-border/50">
+                  <span className="text-text-muted">Документы</span>
+                  <span className="font-semibold text-text-dark flex items-center gap-1.5">
+                    Готовы
+                    <div className="w-4 h-4 rounded-full bg-green-100 flex items-center justify-center">
+                      <CheckIcon className="w-2.5 h-2.5 text-green-600" />
+                    </div>
+                  </span>
+                </div>
+                <div className="flex items-center justify-between text-sm py-3">
+                  <span className="text-text-muted">Ответственный</span>
+                  <span className="font-semibold text-text-dark">Закреплен</span>
+                </div>
+              </div>
+              
             </div>
           </div>
+
         </div>
       </div>
     </section>
