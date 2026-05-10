@@ -2,8 +2,8 @@ import imgRailFreight from '../assets/services/rail-freight.jpg';
 import imgContainerRail from '../assets/services/container-rail.jpg';
 import imgForwarding from '../assets/services/forwarding.jpg';
 import imgTerminalHandling from '../assets/services/terminal-handling.jpg';
-import imgOversizedCargo from '../assets/services/oversized-cargo.jpg';
-import imgMilitaryTransport from '../assets/services/military-transport.jpg';
+import imgOversizedCargo from '../assets/services/oversized-rail-cargo.webp';
+import imgMilitaryTransport from '../assets/services/military-equipment-rail-platform.webp';
 import imgRollingStockRental from '../assets/services/rolling-stock-rental.jpg';
 import imgDrawingsSchemes from '../assets/services/drawings-and-schemes.jpg';
 
