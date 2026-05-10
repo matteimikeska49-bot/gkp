@@ -48,28 +48,51 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="bg-white section-padding overflow-hidden relative">
-      {/* Decorative background lines */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
-        <div className="absolute top-[20%] left-0 w-full h-px rail-line-h" />
-        <div className="absolute top-[80%] left-0 w-full h-px rail-line-h" />
+    <section id="process" className="bg-section-alt section-padding overflow-hidden relative">
+      {/* Rich industrial background */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 dot-pattern opacity-[0.03]" />
+        {/* Horizontal rail lines */}
+        <div className="absolute top-[18%] left-0 w-full h-px rail-line-h opacity-[0.04]" />
+        <div className="absolute top-[82%] left-0 w-full h-px rail-line-h opacity-[0.04]" />
+        {/* Vertical rail lines */}
+        <div className="absolute top-0 left-[15%] w-px h-full rail-line-v opacity-[0.03]" />
+        <div className="absolute top-0 right-[15%] w-px h-full rail-line-v opacity-[0.03]" />
+        {/* Soft radial glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-white/60 rounded-full blur-[150px]" />
       </div>
 
       <div className="container-main relative z-10 reveal-up">
-        {/* Header Text */}
-        <div className="text-center mb-16 max-w-4xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-12 md:mb-16 max-w-4xl mx-auto">
           <div className="accent-line mx-auto mb-6" />
-          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-text-dark leading-tight mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-text-dark leading-tight mb-5">
             От заявки до закрывающих документов
           </h2>
-          <p className="text-text-muted text-lg md:text-xl font-medium leading-relaxed max-w-3xl mx-auto">
-            Вы оставляете параметры груза — мы собираем маршрут, подвижной состав, документы, погрузку и сопровождение в один управляемый процесс.
+          <p className="text-text-muted text-base md:text-lg font-medium leading-relaxed max-w-3xl mx-auto mb-6">
+            За первые 3&nbsp;дня запускаем расчёт, договор, схемы погрузки, ГУ-12, подсыл состава и подготовку к отправке. Дальше сопровождаем груз до выдачи и закрывающих документов.
           </p>
+
+          {/* Dispatch timing accent strip */}
+          <div className="inline-flex items-center gap-2 sm:gap-3 bg-white border border-card-border rounded-full px-4 py-2 sm:px-5 sm:py-2.5 shadow-sm">
+            <div className="w-2 h-2 bg-accent rounded-full animate-pulse shrink-0" />
+            <span className="text-text-dark font-bold text-xs sm:text-sm tracking-wide">Запуск отправки — за 3 дня</span>
+            <div className="hidden sm:flex items-center gap-1.5 ml-1 text-text-muted/50">
+              <span className="text-[10px] font-semibold">1д</span>
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+              <span className="text-[10px] font-semibold">1–2д</span>
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+              <span className="text-[10px] font-semibold">1–2д</span>
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+              <span className="text-[10px] font-semibold text-accent">маршрут</span>
+            </div>
+          </div>
         </div>
 
         {/* Roadmap Grid */}
         <div className="max-w-6xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {steps.map((step) => {
               const Icon = step.icon;
               const isActive = step.isActive;
@@ -77,35 +100,55 @@ export default function ProcessSection() {
               return (
                 <div 
                   key={step.id} 
-                  className={`bg-white rounded-2xl border ${isActive ? 'border-accent/40 shadow-[0_8px_30px_rgba(215,25,32,0.08)] -translate-y-1' : 'border-card-border hover:border-accent/30 hover:shadow-md hover:-translate-y-1'} p-6 md:p-8 relative overflow-hidden flex flex-col h-full group transition-all duration-400 ease-out`}
+                  className={`rounded-2xl border relative overflow-hidden flex flex-col h-full group transition-all duration-300 ease-out ${
+                    isActive 
+                      ? 'bg-white border-accent/30 shadow-[0_8px_30px_rgba(215,25,32,0.07)] -translate-y-0.5' 
+                      : 'bg-white border-card-border hover:border-accent/25 hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] hover:-translate-y-0.5'
+                  }`}
                 >
+                  {/* Top route accent line */}
+                  <div className={`h-[3px] w-full ${isActive ? 'bg-gradient-to-r from-accent/60 via-accent to-accent/60' : 'bg-gradient-to-r from-transparent via-card-border to-transparent group-hover:via-accent/40'} transition-all duration-300`} />
+
                   {/* Watermark Number */}
-                  <span className="absolute -bottom-2 -right-2 text-[6rem] leading-none font-extrabold text-card-border/40 group-hover:text-card-border/60 transition-colors z-0 pointer-events-none select-none">
+                  <span className="absolute -bottom-3 -right-1 text-[5.5rem] leading-none font-extrabold text-card-border/25 group-hover:text-card-border/40 transition-colors duration-300 z-0 pointer-events-none select-none">
                     {step.id}
                   </span>
 
-                  {/* Active Highlight Glow */}
+                  {/* Active glow */}
                   {isActive && (
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+                    <div className="absolute top-0 right-0 w-40 h-40 bg-accent/[0.04] rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
                   )}
 
-                  <div className="relative z-10 flex-1 flex flex-col">
-                    <div className="flex items-start justify-between mb-6 gap-3">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-colors duration-400 ${isActive ? 'bg-accent text-white shadow-lg shadow-accent/20' : 'bg-section-light text-accent border border-card-border group-hover:bg-accent/10'}`}>
-                        <Icon className="w-6 h-6" />
+                  <div className="relative z-10 flex-1 flex flex-col p-6 md:p-7">
+                    {/* Icon + Badge row */}
+                    <div className="flex items-start justify-between mb-5 gap-3">
+                      <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 ${
+                        isActive 
+                          ? 'bg-accent text-white shadow-md shadow-accent/25' 
+                          : 'bg-section-alt text-accent border border-card-border group-hover:bg-accent/10 group-hover:border-accent/20'
+                      }`}>
+                        <Icon className="w-5 h-5" />
                       </div>
                       {step.badge && (
-                        <span className={`inline-block whitespace-nowrap text-[10px] md:text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-md ${isActive ? 'bg-accent/10 border border-accent/20 text-accent' : 'bg-section-light border border-card-border text-text-muted group-hover:border-accent/20'}`}>
+                        <span className={`inline-block whitespace-nowrap text-[10px] md:text-[11px] font-bold uppercase tracking-wider px-2.5 py-1.5 rounded-md transition-all duration-300 ${
+                          isActive 
+                            ? 'bg-accent/10 border border-accent/20 text-accent' 
+                            : 'bg-section-alt border border-card-border text-text-muted group-hover:border-accent/20 group-hover:text-text-dark/70'
+                        }`}>
                           {step.badge}
                         </span>
                       )}
                     </div>
                     
-                    <h3 className={`font-bold text-lg md:text-xl mb-3 transition-colors ${isActive ? 'text-text-dark' : 'text-text-dark/90 group-hover:text-text-dark'}`}>
+                    {/* Title */}
+                    <h3 className={`font-bold text-lg mb-2.5 transition-colors duration-300 ${
+                      isActive ? 'text-text-dark' : 'text-text-dark/90 group-hover:text-text-dark'
+                    }`}>
                       {step.title}
                     </h3>
                     
-                    <p className="text-text-muted text-sm md:text-base leading-relaxed">
+                    {/* Description */}
+                    <p className="text-text-muted text-sm leading-relaxed">
                       {step.text}
                     </p>
                   </div>
@@ -116,17 +159,18 @@ export default function ProcessSection() {
         </div>
 
         {/* Conclusion Badge */}
-        <div className="max-w-3xl mx-auto mt-12 md:mt-16 flex justify-center reveal-up">
-          <div className="bg-white border border-card-border rounded-xl px-5 py-4 md:px-6 md:py-4 flex items-center gap-3 md:gap-4 hover:border-accent/30 transition-colors shadow-sm cursor-default">
-            <div className="w-2 h-2 md:w-2.5 md:h-2.5 bg-accent rounded-full animate-pulse shrink-0" />
+        <div className="max-w-3xl mx-auto mt-10 md:mt-14 flex justify-center reveal-up">
+          <div className="bg-white border border-card-border rounded-xl px-5 py-4 md:px-8 md:py-5 flex items-center gap-3 md:gap-4 hover:border-accent/30 transition-colors shadow-sm cursor-default">
+            <div className="w-2.5 h-2.5 bg-accent rounded-full animate-pulse shrink-0" />
             <span className="text-text-dark font-semibold text-sm md:text-base leading-snug">
-              Один ответственный ведёт процесс на каждом этапе
+              Один ответственный ведёт маршрут, документы и сроки на каждом этапе
             </span>
           </div>
         </div>
 
-        <div className="max-w-3xl mx-auto mt-6 md:mt-8 flex justify-center text-center px-4 reveal-up">
-          <p className="text-text-muted/70 text-[10px] md:text-xs leading-relaxed font-medium">
+        {/* Footnote */}
+        <div className="max-w-3xl mx-auto mt-5 md:mt-6 flex justify-center text-center px-4 reveal-up">
+          <p className="text-text-muted/60 text-[10px] md:text-xs leading-relaxed">
             * Сроки могут уменьшаться или увеличиваться в зависимости от условий предприятия, станции отправления и характера перевозимого груза.
           </p>
         </div>
