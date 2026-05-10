@@ -1,70 +1,90 @@
-import { whyUsPoints } from '../data/services';
-import { CheckIcon } from '../components/ui/Icons';
+import { WagonIcon, DocumentIcon, BlueprintIcon, TerminalIcon, TrackingIcon, TaxIcon } from '../components/ui/Icons';
+
+const features = [
+  {
+    title: 'Подвижной состав',
+    description: 'Подбираем собственный или арендованный состав под тип груза, станцию и сроки отправки.',
+    icon: WagonIcon,
+  },
+  {
+    title: 'Документы и ЖД-накладные',
+    description: 'Оформляем перевозочные документы, схемы погрузки и железнодорожные накладные.',
+    icon: DocumentIcon,
+  },
+  {
+    title: 'Схемы МТУ / НТУ',
+    description: 'Разрабатываем и согласовываем схемы размещения и крепления для сложных, негабаритных и тяжеловесных грузов.',
+    icon: BlueprintIcon,
+  },
+  {
+    title: 'Терминальная обработка',
+    description: 'Организуем взвешивание, погрузку, выгрузку, упаковку, пломбирование и крепление груза.',
+    icon: TerminalIcon,
+  },
+  {
+    title: 'Слежение и розыск груза',
+    description: 'Предоставляем информацию о местонахождении груза в пути следования и сопровождаем перевозку до станции назначения.',
+    icon: TrackingIcon,
+  },
+  {
+    title: 'НДС и закрывающие документы',
+    description: 'Работаем по договору и предоставляем документы для бухгалтерии, внутреннего контроля и вычетов по НДС.',
+    icon: TaxIcon,
+  },
+];
 
 export default function WhyUsSection() {
   return (
-    <section id="why-us" className="bg-white section-padding">
+    <section id="why-us" className="bg-section-alt section-padding">
       <div className="container-main reveal-up">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left: Content */}
-          <div>
-            <div className="accent-line mb-4" />
-            <h2 className="section-title mb-4 leading-tight">
-              Не масштаб ради масштаба, а{' '}
-              <span className="text-accent">управляемая перевозка</span>{' '}
-              для вашего бизнеса
+          <div className="lg:col-span-5 lg:sticky lg:top-32">
+            <div className="accent-line mb-6" />
+            <h2 className="section-title mb-6 leading-tight">
+              Один партнёр на весь <span className="text-accent">контур ЖД-перевозки</span>
             </h2>
 
-            <p className="text-text-muted text-base md:text-lg leading-relaxed mb-8">
-              Для клиента важнее не громкие заявления, а конкретный результат: будет ли подан нужный
-              вагон, примут ли груз к перевозке, не встанет ли он на маршруте, сойдутся ли документы
-              и будет ли понятно, кто отвечает за результат.
+            <p className="text-text-muted text-base md:text-lg leading-relaxed mb-6">
+              ГК «Параллель» закрывает не отдельную операцию, а весь процесс: подбор подвижного состава, маршрут, документы, схемы крепления, терминальную обработку, погрузку, сопровождение и закрывающие документы.
             </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {whyUsPoints.map((point, i) => (
-                <div key={i} className="flex items-center gap-3 bg-section-light rounded-lg px-4 py-3 border border-card-border hover:border-accent/30 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300">
-                  <CheckIcon className="w-4 h-4 text-accent flex-shrink-0" />
-                  <span className="text-text-dark text-sm font-medium">{point}</span>
-                </div>
-              ))}
-            </div>
+            
+            <p className="text-text-muted text-base leading-relaxed font-medium">
+              Вам не нужно собирать перевозку из разных подрядчиков. Мы берём всю ответственность и координацию на себя в рамках единого контура.
+            </p>
           </div>
 
-          {/* Right: Decorative element */}
-          <div className="relative">
-            <div className="bg-graphite rounded-2xl p-8 md:p-10 relative overflow-hidden">
-              {/* Abstract rail network */}
-              <svg className="w-full h-auto" viewBox="0 0 400 300" fill="none">
-                {/* Rail network visualization */}
-                <path d="M50 250 L200 150 L350 250" stroke="#D71920" strokeWidth="1.5" opacity="0.3" />
-                <path d="M50 200 L200 100 L350 200" stroke="#D71920" strokeWidth="1" opacity="0.2" />
-                <path d="M100 250 L200 50 L300 250" stroke="#D71920" strokeWidth="1" opacity="0.15" />
-                
-                {/* Central hub */}
-                <circle cx="200" cy="150" r="20" fill="#D71920" opacity="0.1" />
-                <circle cx="200" cy="150" r="10" fill="#D71920" opacity="0.2" />
-                <circle cx="200" cy="150" r="4" fill="#D71920" />
-                
-                {/* Nodes */}
-                <circle cx="50" cy="250" r="4" fill="#D71920" opacity="0.5" />
-                <circle cx="350" cy="250" r="4" fill="#D71920" opacity="0.5" />
-                <circle cx="200" cy="50" r="4" fill="#D71920" opacity="0.5" />
-                <circle cx="100" cy="180" r="3" fill="white" opacity="0.2" />
-                <circle cx="300" cy="180" r="3" fill="white" opacity="0.2" />
-                
-                {/* Text labels */}
-                <text x="200" y="280" fill="white" fontSize="11" textAnchor="middle" opacity="0.3" fontFamily="Inter">
-                  УПРАВЛЯЕМАЯ ПЕРЕВОЗКА
-                </text>
-              </svg>
-
-              {/* Corner accent */}
-              <div className="absolute top-4 left-4 flex flex-col gap-[3px]">
-                <div className="w-5 h-[2px] bg-accent rounded-full opacity-40" />
-                <div className="w-3 h-[2px] bg-accent rounded-full opacity-40" />
-                <div className="w-5 h-[2px] bg-accent rounded-full opacity-40" />
-              </div>
+          {/* Right: 6 Cards */}
+          <div className="lg:col-span-7">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+              {features.map((feature, i) => {
+                const IconComponent = feature.icon;
+                return (
+                  <div 
+                    key={i} 
+                    className="bg-white rounded-2xl border border-card-border p-6 hover:border-accent/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
+                  >
+                    {/* Subtle numbering/accent in background */}
+                    <div className="absolute -top-4 -right-4 text-[6rem] font-black text-graphite/[0.02] select-none pointer-events-none group-hover:text-accent/[0.03] transition-colors duration-500">
+                      0{i + 1}
+                    </div>
+                    
+                    <div className="flex items-start gap-4 relative z-10">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                        <IconComponent className="w-6 h-6 text-accent group-hover:text-white transition-colors duration-300" />
+                      </div>
+                      <div>
+                        <h3 className="text-text-dark font-bold text-lg mb-2 group-hover:text-accent transition-colors duration-300">
+                          {feature.title}
+                        </h3>
+                        <p className="text-text-muted text-sm leading-relaxed">
+                          {feature.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
