@@ -1,4 +1,4 @@
-import { CheckIcon } from '../components/ui/Icons';
+import { CheckIcon, WagonIcon } from '../components/ui/Icons';
 
 const points = [
   'работаем с простоями и «брошенными» поездами',
@@ -10,64 +10,18 @@ const points = [
 
 export default function MovementSection() {
   return (
-    <section className="bg-white section-padding">
+    <section className="bg-section-alt section-padding overflow-hidden">
       <div className="container-main reveal-up">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left: Decorative route visualization */}
-          <div className="relative">
-            <div className="bg-graphite rounded-2xl p-8 md:p-10 relative overflow-hidden">
-              {/* Rail route SVG */}
-              <svg className="w-full h-auto" viewBox="0 0 400 250" fill="none">
-                {/* Track base */}
-                <path d="M30 200 Q100 200 150 150 Q200 100 250 100 Q300 100 370 50" stroke="#D71920" strokeWidth="2" strokeDasharray="6 4" opacity="0.4" />
-                <path d="M30 200 Q100 200 150 150 Q200 100 250 100 Q300 100 370 50" stroke="#D71920" strokeWidth="1" opacity="0.8" />
-                
-                {/* Station dots */}
-                <circle cx="30" cy="200" r="8" fill="#D71920" opacity="0.3" />
-                <circle cx="30" cy="200" r="4" fill="#D71920" />
-                <text x="30" y="225" fill="white" fontSize="10" textAnchor="middle" opacity="0.5">A</text>
-                
-                <circle cx="150" cy="150" r="6" fill="#D71920" opacity="0.3" />
-                <circle cx="150" cy="150" r="3" fill="#D71920" />
-                
-                <circle cx="250" cy="100" r="6" fill="#D71920" opacity="0.3" />
-                <circle cx="250" cy="100" r="3" fill="#D71920" />
-                
-                <circle cx="370" cy="50" r="8" fill="#D71920" opacity="0.3" />
-                <circle cx="370" cy="50" r="4" fill="#D71920" />
-                <text x="370" y="75" fill="white" fontSize="10" textAnchor="middle" opacity="0.5">B</text>
-                
-                {/* Grid lines */}
-                <line x1="0" y1="50" x2="400" y2="50" stroke="white" strokeWidth="0.3" opacity="0.1" />
-                <line x1="0" y1="100" x2="400" y2="100" stroke="white" strokeWidth="0.3" opacity="0.1" />
-                <line x1="0" y1="150" x2="400" y2="150" stroke="white" strokeWidth="0.3" opacity="0.1" />
-                <line x1="0" y1="200" x2="400" y2="200" stroke="white" strokeWidth="0.3" opacity="0.1" />
-                
-                {/* Moving indicator */}
-                <circle cx="200" cy="120" r="6" fill="#D71920" opacity="0.6">
-                  <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="200" cy="120" r="12" fill="none" stroke="#D71920" strokeWidth="1" opacity="0.3">
-                  <animate attributeName="r" values="12;20;12" dur="2s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite" />
-                </circle>
-              </svg>
-
-              {/* Decorative tech lines */}
-              <div className="absolute top-4 right-4 text-white/10 text-xs font-mono">
-                ROUTE TRACKING
-              </div>
-            </div>
-          </div>
-
-          {/* Right: Content */}
-          <div>
-            <div className="accent-line mb-4" />
-            <h2 className="section-title mb-2">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          
+          {/* Left: Content */}
+          <div className="lg:col-span-6 lg:pr-6">
+            <div className="accent-line mb-6" />
+            <h2 className="section-title mb-6 leading-tight">
               Когда сеть <span className="text-accent">«стоит»</span>, вы едете
             </h2>
 
-            <p className="text-text-muted text-lg mb-6 leading-relaxed">
+            <p className="text-text-dark text-lg md:text-xl font-semibold mb-8 leading-relaxed">
               Мы не просто предоставляем вагоны — мы обеспечиваем их прохождение через «узкие места» системы.
             </p>
 
@@ -77,17 +31,79 @@ export default function MovementSection() {
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center mt-0.5">
                     <CheckIcon className="w-3.5 h-3.5 text-accent" />
                   </div>
-                  <span className="text-text-dark text-base leading-relaxed">{point}</span>
+                  <span className="text-text-dark text-base font-medium leading-snug">{point}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="bg-section-light rounded-xl p-4 border border-card-border">
-              <p className="text-text-muted text-sm leading-relaxed">
+            <div className="bg-white border border-card-border rounded-xl p-5 shadow-sm inline-block">
+              <p className="text-text-dark text-sm font-semibold flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-accent rounded-full" />
                 Груз не остаётся без внимания после отправки, а клиент понимает, что происходит на маршруте.
               </p>
             </div>
           </div>
+
+          {/* Right: Realistic Rail Route Visualization */}
+          <div className="lg:col-span-6">
+            <div className="bg-graphite rounded-3xl p-8 md:p-10 relative overflow-hidden shadow-2xl">
+              {/* Background styling */}
+              <div className="absolute inset-0 dot-pattern opacity-10" />
+              <div className="absolute -top-32 -right-32 w-64 h-64 bg-accent/20 rounded-full blur-[100px] pointer-events-none" />
+
+              <div className="relative z-10 flex flex-col sm:flex-row gap-8 sm:gap-12 justify-between">
+                
+                {/* Route Timeline */}
+                <div className="flex-1 relative">
+                  <div className="absolute left-[7px] top-2 bottom-2 w-px bg-white/10" />
+                  
+                  <div className="space-y-8 relative z-10">
+                    
+                    {/* Step 1: Origin */}
+                    <div className="relative pl-8">
+                      <div className="absolute left-0 top-1 w-4 h-4 rounded-full bg-graphite border-[3px] border-white/40" />
+                      <span className="text-white/40 text-[10px] font-bold uppercase tracking-wider block mb-1">Отправление</span>
+                      <span className="text-white text-sm font-bold">Станция отправления</span>
+                    </div>
+
+                    {/* Step 2: Narrow Point (Active/Alert) */}
+                    <div className="relative pl-8">
+                      <div className="absolute -left-1 top-0 w-6 h-6 rounded-full bg-accent/20 animate-ping" />
+                      <div className="absolute left-0 top-1 w-4 h-4 rounded-full bg-graphite border-[3px] border-accent" />
+                      <div className="absolute left-[5px] top-[9px] w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                      <span className="text-accent text-[10px] font-bold uppercase tracking-wider block mb-1">Узкое место</span>
+                      <span className="text-white text-sm font-bold">Брошенные поезда</span>
+                    </div>
+
+                    {/* Step 3: Control */}
+                    <div className="relative pl-8">
+                      <div className="absolute left-0 top-1 w-4 h-4 rounded-full bg-graphite border-[3px] border-accent/60" />
+                      <span className="text-white/40 text-[10px] font-bold uppercase tracking-wider block mb-1">Контроль</span>
+                      <span className="text-white text-sm font-bold">Ручное сопровождение</span>
+                    </div>
+
+                    {/* Step 4: Destination */}
+                    <div className="relative pl-8">
+                      <div className="absolute left-0 top-1 w-4 h-4 rounded-full bg-graphite border-[3px] border-white/40" />
+                      <span className="text-white/40 text-[10px] font-bold uppercase tracking-wider block mb-1">Назначение</span>
+                      <span className="text-white text-sm font-bold">Станция назначения</span>
+                    </div>
+
+                  </div>
+                </div>
+
+                {/* Train Silhouette decorative element */}
+                <div className="hidden sm:flex flex-col items-center justify-center opacity-20 relative">
+                  <div className="absolute top-0 bottom-0 w-px bg-white/20 border-dashed border-l" />
+                  <div className="bg-graphite py-4 relative z-10">
+                    <WagonIcon className="w-24 h-24 text-white" />
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
