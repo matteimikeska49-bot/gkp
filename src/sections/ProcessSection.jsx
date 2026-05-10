@@ -62,21 +62,21 @@ export default function ProcessSection() {
         </div>
 
         {/* Route / Timeline */}
-        <div className="max-w-5xl mx-auto relative pb-10">
+        <div className="max-w-5xl mx-auto relative pb-2 md:pb-10">
           
           {/* Central Railway Track */}
-          <div className="absolute left-[39px] md:left-[50%] md:-ml-[5px] top-4 bottom-4 w-[10px] z-0">
+          <div className="absolute left-[39px] md:left-[50%] md:-ml-[5px] top-4 bottom-12 md:bottom-4 w-[10px] z-0">
             <div className="absolute left-0 top-0 bottom-0 w-px bg-card-border" />
             <div className="absolute right-0 top-0 bottom-0 w-px bg-card-border" />
             {/* Ties */}
-            <div className="absolute inset-0 flex flex-col justify-between py-2">
+            <div className="absolute inset-0 flex flex-col justify-between py-2 overflow-hidden">
               {[...Array(60)].map((_, i) => (
                 <div key={i} className="w-full h-[1px] bg-card-border/60" />
               ))}
             </div>
           </div>
 
-          <div className="space-y-10 md:space-y-0 relative z-10">
+          <div className="space-y-6 md:space-y-0 relative z-10">
             {steps.map((step, idx) => {
               const Icon = step.icon;
               const isEven = idx % 2 === 0;
@@ -132,98 +132,56 @@ export default function ProcessSection() {
         </div>
 
         {/* Fast Dispatch Accent Block */}
-        <div className="max-w-5xl mx-auto mt-20 bg-white border border-card-border rounded-2xl md:rounded-3xl p-6 md:p-10 relative overflow-hidden reveal-up shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_40px_rgba(215,25,32,0.04)] transition-shadow duration-500">
+        <div className="max-w-5xl mx-auto mt-12 md:mt-16 bg-section-alt border border-card-border rounded-2xl md:rounded-3xl p-6 md:p-8 relative overflow-hidden reveal-up shadow-sm">
           <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
           
-          <div className="relative z-10">
-            <h3 className="text-2xl md:text-3xl font-bold text-text-dark mb-3">
-              Запуск отправки за 3 дня
-            </h3>
-            <p className="text-text-muted text-base md:text-lg mb-10 max-w-3xl">
-              Параллельно запускаем расчёт, договор, схемы погрузки, подсыл подвижного состава и подготовку к отправке, чтобы груз быстрее вышел на маршрут.
-            </p>
-
-            {/* Mini Timeline Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative">
-              {/* Desktop connecting line */}
-              <div className="hidden lg:block absolute top-[14px] left-8 right-8 h-px bg-card-border" />
-              
-              {/* Step 1 */}
-              <div className="relative">
-                <div className="flex items-center gap-3 mb-4 lg:mb-6">
-                  <div className="w-8 h-8 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center relative z-10 shrink-0">
-                    <div className="w-2 h-2 rounded-full bg-accent" />
-                  </div>
-                  <span className="text-accent font-bold text-sm tracking-wider uppercase">1 день</span>
-                </div>
-                <h4 className="font-bold text-text-dark text-base md:text-lg mb-3">Заявка и договор</h4>
-                <ul className="space-y-2">
-                  <li className="text-text-muted text-sm flex gap-2.5"><div className="w-1.5 h-1.5 rounded-full bg-accent/50 mt-1.5 shrink-0" />Приём заявки</li>
-                  <li className="text-text-muted text-sm flex gap-2.5"><div className="w-1.5 h-1.5 rounded-full bg-accent/50 mt-1.5 shrink-0" />Расчёт калькуляции</li>
-                  <li className="text-text-muted text-sm flex gap-2.5"><div className="w-1.5 h-1.5 rounded-full bg-accent/50 mt-1.5 shrink-0" />Заключение договора</li>
-                </ul>
-              </div>
-
-              {/* Step 2 */}
-              <div className="relative">
-                <div className="flex items-center gap-3 mb-4 lg:mb-6">
-                  <div className="w-8 h-8 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center relative z-10 shrink-0">
-                    <div className="w-2 h-2 rounded-full bg-accent" />
-                  </div>
-                  <span className="text-accent font-bold text-sm tracking-wider uppercase">1–2 дня</span>
-                </div>
-                <h4 className="font-bold text-text-dark text-base md:text-lg mb-3">Схемы, ГУ-12 и состав</h4>
-                <ul className="space-y-2">
-                  <li className="text-text-muted text-sm flex gap-2.5"><div className="w-1.5 h-1.5 rounded-full bg-accent/50 mt-1.5 shrink-0" />Разработка и согласование схем погрузки</li>
-                  <li className="text-text-muted text-sm flex gap-2.5"><div className="w-1.5 h-1.5 rounded-full bg-accent/50 mt-1.5 shrink-0" />МТУ / НТУ, если требуется</li>
-                  <li className="text-text-muted text-sm flex gap-2.5"><div className="w-1.5 h-1.5 rounded-full bg-accent/50 mt-1.5 shrink-0" />Заявка на отправку по РЖД, форма ГУ-12</li>
-                  <li className="text-text-muted text-sm flex gap-2.5"><div className="w-1.5 h-1.5 rounded-full bg-accent/50 mt-1.5 shrink-0" />Подсыл подвижного состава</li>
-                  <li className="text-text-muted text-sm flex gap-2.5"><div className="w-1.5 h-1.5 rounded-full bg-accent/50 mt-1.5 shrink-0" />Подготовка к погрузке</li>
-                  <li className="text-text-muted text-sm flex gap-2.5"><div className="w-1.5 h-1.5 rounded-full bg-accent/50 mt-1.5 shrink-0" />Страхование груза при необходимости</li>
-                </ul>
-              </div>
-
-              {/* Step 3 */}
-              <div className="relative">
-                <div className="flex items-center gap-3 mb-4 lg:mb-6">
-                  <div className="w-8 h-8 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center relative z-10 shrink-0">
-                    <div className="w-2 h-2 rounded-full bg-accent" />
-                  </div>
-                  <span className="text-accent font-bold text-sm tracking-wider uppercase">1–2 дня</span>
-                </div>
-                <h4 className="font-bold text-text-dark text-base md:text-lg mb-3">Погрузка и маршрут</h4>
-                <ul className="space-y-2">
-                  <li className="text-text-muted text-sm flex gap-2.5"><div className="w-1.5 h-1.5 rounded-full bg-accent/50 mt-1.5 shrink-0" />Доставка до ЖД-станции</li>
-                  <li className="text-text-muted text-sm flex gap-2.5"><div className="w-1.5 h-1.5 rounded-full bg-accent/50 mt-1.5 shrink-0" />Погрузка в вагон</li>
-                  <li className="text-text-muted text-sm flex gap-2.5"><div className="w-1.5 h-1.5 rounded-full bg-accent/50 mt-1.5 shrink-0" />Оплата ЖД-тарифа и сборов</li>
-                  <li className="text-text-muted text-sm flex gap-2.5"><div className="w-1.5 h-1.5 rounded-full bg-accent/50 mt-1.5 shrink-0" />Крепление, упаковка, пломбировка</li>
-                  <li className="text-text-muted text-sm flex gap-2.5"><div className="w-1.5 h-1.5 rounded-full bg-accent/50 mt-1.5 shrink-0" />Сдача ВОХР и ЖД-станции, если требуется</li>
-                </ul>
-              </div>
-
-              {/* Step 4 */}
-              <div className="relative">
-                <div className="flex items-center gap-3 mb-4 lg:mb-6">
-                  <div className="w-8 h-8 rounded-full bg-card-border/50 border border-card-border flex items-center justify-center relative z-10 shrink-0">
-                    <div className="w-2 h-2 rounded-full bg-text-muted/50" />
-                  </div>
-                  <span className="text-text-muted font-bold text-sm tracking-wider uppercase">Далее</span>
-                </div>
-                <h4 className="font-bold text-text-dark text-base md:text-lg mb-3">Доставка по сети ОАО «РЖД»</h4>
-                <ul className="space-y-2">
-                  <li className="text-text-muted text-sm flex gap-2.5"><div className="w-1.5 h-1.5 rounded-full bg-card-border mt-1.5 shrink-0" />Доставка до станции назначения</li>
-                  <li className="text-text-muted text-sm flex gap-2.5"><div className="w-1.5 h-1.5 rounded-full bg-card-border mt-1.5 shrink-0" />Слежение за грузом на маршруте</li>
-                  <li className="text-text-muted text-sm flex gap-2.5"><div className="w-1.5 h-1.5 rounded-full bg-card-border mt-1.5 shrink-0" />Приём груза на станции назначения</li>
-                  <li className="text-text-muted text-sm flex gap-2.5"><div className="w-1.5 h-1.5 rounded-full bg-card-border mt-1.5 shrink-0" />Раскрепление и доставка до склада при необходимости</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="mt-10 pt-6 border-t border-card-border">
-              <p className="text-text-muted/70 text-xs md:text-sm font-medium">
-                * Сроки могут уменьшаться или увеличиваться в зависимости от условий предприятия, станции отправления и характера перевозимого груза.
+          <div className="relative z-10 flex flex-col lg:flex-row gap-6 lg:gap-10 items-start">
+            <div className="lg:w-1/3">
+              <h3 className="text-xl md:text-2xl font-bold text-text-dark mb-3">
+                Запуск отправки за 3 дня
+              </h3>
+              <p className="text-text-muted text-sm md:text-base leading-relaxed">
+                Параллельно запускаем расчёт, договор, схемы погрузки, подсыл подвижного состава и подготовку к отправке, чтобы груз быстрее вышел на маршрут.
               </p>
             </div>
+
+            <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+              {/* Card 1 */}
+              <div className="bg-white border border-card-border rounded-xl p-4 md:p-5 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+                <div className="inline-block bg-accent/10 border border-accent/20 text-accent font-bold text-[10px] md:text-xs px-2.5 py-1 rounded md:rounded-md uppercase tracking-wider mb-3">1 день</div>
+                <ul className="space-y-2">
+                  <li className="text-text-dark text-sm font-medium flex gap-2"><span className="text-accent/60">•</span> Заявка</li>
+                  <li className="text-text-dark text-sm font-medium flex gap-2"><span className="text-accent/60">•</span> Расчёт</li>
+                  <li className="text-text-dark text-sm font-medium flex gap-2"><span className="text-accent/60">•</span> Договор</li>
+                </ul>
+              </div>
+              
+              {/* Card 2 */}
+              <div className="bg-white border border-card-border rounded-xl p-4 md:p-5 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+                <div className="inline-block bg-accent/10 border border-accent/20 text-accent font-bold text-[10px] md:text-xs px-2.5 py-1 rounded md:rounded-md uppercase tracking-wider mb-3">1–2 дня</div>
+                <ul className="space-y-2">
+                  <li className="text-text-dark text-sm font-medium flex gap-2"><span className="text-accent/60">•</span> Схемы МТУ / НТУ</li>
+                  <li className="text-text-dark text-sm font-medium flex gap-2"><span className="text-accent/60">•</span> Заявка ГУ-12</li>
+                  <li className="text-text-dark text-sm font-medium flex gap-2"><span className="text-accent/60">•</span> Подсыл состава</li>
+                </ul>
+              </div>
+
+              {/* Card 3 */}
+              <div className="bg-white border border-card-border rounded-xl p-4 md:p-5 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+                <div className="inline-block bg-accent/10 border border-accent/20 text-accent font-bold text-[10px] md:text-xs px-2.5 py-1 rounded md:rounded-md uppercase tracking-wider mb-3">1–2 дня</div>
+                <ul className="space-y-2">
+                  <li className="text-text-dark text-sm font-medium flex gap-2"><span className="text-accent/60">•</span> Доставка до станции</li>
+                  <li className="text-text-dark text-sm font-medium flex gap-2"><span className="text-accent/60">•</span> Погрузка</li>
+                  <li className="text-text-dark text-sm font-medium flex gap-2"><span className="text-accent/60">•</span> Крепление и пломбировка</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div className="relative z-10 mt-6 lg:mt-8 pt-4 lg:pt-5 border-t border-card-border">
+             <p className="text-text-muted text-[10px] md:text-xs leading-relaxed">
+                * Сроки могут уменьшаться или увеличиваться в зависимости от условий предприятия, станции отправления и характера перевозимого груза.
+             </p>
           </div>
         </div>
 

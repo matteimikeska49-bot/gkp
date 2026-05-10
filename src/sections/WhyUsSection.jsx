@@ -41,7 +41,7 @@ const features = [
 ];
 
 const leftBadges = [
-  '6 этапов в одном контуре',
+  '6 зон ответственности в одном контуре',
   'От вагона до закрывающих документов',
   'Один ответственный за перевозку'
 ];
@@ -68,7 +68,7 @@ export default function WhyUsSection() {
             <div className="inline-flex items-center gap-3 bg-white border border-card-border rounded-lg px-4 py-3 shadow-sm w-fit">
               <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
               <span className="text-sm font-medium text-text-dark">
-                Выберите этап — покажем, что берём на себя
+                Выберите зону — покажем, что берём на себя
               </span>
             </div>
 
@@ -129,7 +129,7 @@ export default function WhyUsSection() {
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-0.5">
                           <span className={`text-[10px] md:text-xs font-bold uppercase tracking-wider transition-colors duration-400 ${isActive ? 'text-accent' : 'text-text-muted'}`}>
-                            Этап 0{i + 1}
+                            Зона ответственности
                           </span>
                         </div>
                         <h3 className={`font-bold text-base md:text-lg transition-colors duration-400 ${isActive ? 'text-text-dark' : 'text-text-dark/80 group-hover:text-text-dark'}`}>
