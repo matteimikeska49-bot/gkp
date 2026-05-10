@@ -30,35 +30,47 @@ export default function Header() {
   const handleNavClick = (e, href) => {
     e.preventDefault();
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    
+    // Slight delay to allow mobile menu to close before scrolling
+    setTimeout(() => {
+      const el = document.querySelector(href);
+      if (el) {
+        // Offset for the fixed header
+        const headerOffset = 80;
+        const elementPosition = el.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
   };
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-graphite/95 backdrop-blur-sm shadow-lg'
-          : 'bg-transparent'
+          ? 'bg-[#1A1A1A]/95 backdrop-blur-md shadow-lg border-b border-white/5 py-1'
+          : 'bg-transparent py-3'
       }`}
     >
       <div className="container-main">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+          <a href="#" className="flex items-center gap-3 md:gap-4 group" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
             {/* Rail lines logo mark */}
             <div className="flex flex-col gap-[3px]">
-              <div className="w-7 h-[3px] bg-accent rounded-full transition-transform group-hover:translate-x-0.5" />
-              <div className="w-5 h-[3px] bg-accent rounded-full transition-transform group-hover:translate-x-1" />
-              <div className="w-7 h-[3px] bg-accent rounded-full transition-transform group-hover:translate-x-0.5" />
+              <div className="w-6 md:w-8 h-[3px] bg-accent rounded-full transition-transform group-hover:translate-x-0.5" />
+              <div className="w-4 md:w-5 h-[3px] bg-accent rounded-full transition-transform group-hover:translate-x-1" />
+              <div className="w-6 md:w-8 h-[3px] bg-accent rounded-full transition-transform group-hover:translate-x-0.5" />
             </div>
             <div>
-              <div className="text-white font-bold text-base md:text-lg tracking-wide leading-tight">
+              <div className="text-white font-bold text-base md:text-xl tracking-wide leading-tight group-hover:text-white/90 transition-colors">
                 ГК ПАРАЛЛЕЛЬ
               </div>
-              <div className="text-white/50 text-[10px] md:text-xs tracking-wider uppercase leading-tight">
+              <div className="text-white/50 text-[9px] md:text-[11px] tracking-wider uppercase leading-tight mt-0.5">
                 Железнодорожные перевозки грузов
               </div>
             </div>
@@ -71,7 +83,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="text-white/70 hover:text-white text-sm font-medium transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-accent after:transition-all hover:after:w-full"
+                className="text-white/70 hover:text-white text-sm font-semibold transition-colors relative after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:h-[2px] after:bg-accent after:transition-all hover:after:w-full"
               >
                 {item.label}
               </a>
@@ -82,15 +94,15 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-6">
             <a
               href="tel:+78312673070"
-              className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+              className="flex items-center gap-2 text-white hover:text-accent transition-colors font-bold text-sm md:text-base tracking-wide"
             >
-              <PhoneIcon className="w-4 h-4" />
-              <span className="text-sm font-medium">+7 (831) 267-30-70</span>
+              <PhoneIcon className="w-4 h-4 text-accent" />
+              +7 (831) 267-30-70
             </a>
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="btn-primary text-sm px-5 py-2.5"
+              className="bg-accent hover:bg-[#b5141a] text-white text-sm font-bold px-6 py-2.5 rounded-lg transition-all shadow-[0_0_15px_rgba(215,25,32,0.2)] hover:shadow-[0_0_25px_rgba(215,25,32,0.4)] hover:-translate-y-0.5"
             >
               Оставить заявку
             </a>
@@ -99,47 +111,52 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden text-white p-2"
+            className="lg:hidden text-white p-2 focus:outline-none"
             aria-label={mobileOpen ? 'Закрыть меню' : 'Открыть меню'}
           >
-            {mobileOpen ? <CloseIcon /> : <MenuIcon />}
+            {mobileOpen ? <CloseIcon className="w-7 h-7" /> : <MenuIcon className="w-7 h-7" />}
           </button>
         </div>
       </div>
 
       {/* Mobile menu overlay */}
       <div
-        className={`lg:hidden fixed inset-0 top-16 bg-graphite-dark transition-all duration-300 ${
-          mobileOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        className={`lg:hidden fixed inset-x-0 top-[64px] bottom-0 bg-[#1A1A1A] transition-all duration-300 z-40 overflow-y-auto ${
+          mobileOpen ? 'opacity-100 visible translate-x-0' : 'opacity-0 invisible translate-x-full'
         }`}
       >
-        <div className="container-main pt-8 flex flex-col gap-6">
-          {navItems.map((item) => (
+        <div className="container-main py-8 flex flex-col h-full">
+          <div className="flex flex-col gap-2">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="text-white text-xl font-bold py-4 border-b border-white/10 flex items-center justify-between group"
+              >
+                {item.label}
+                <span className="text-accent opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+              </a>
+            ))}
+          </div>
+
+          <div className="mt-auto pt-10 pb-6 flex flex-col gap-6">
             <a
-              key={item.href}
-              href={item.href}
-              onClick={(e) => handleNavClick(e, item.href)}
-              className="text-white text-lg font-medium py-2 border-b border-white/10"
+              href="tel:+78312673070"
+              className="flex items-center gap-3 text-white justify-center bg-white/5 rounded-xl py-4 border border-white/10"
             >
-              {item.label}
+              <PhoneIcon className="w-5 h-5 text-accent" />
+              <span className="text-lg font-bold tracking-wide">+7 (831) 267-30-70</span>
             </a>
-          ))}
 
-          <a
-            href="tel:+78312673070"
-            className="flex items-center gap-3 text-white/80 py-2"
-          >
-            <PhoneIcon className="w-5 h-5" />
-            <span className="text-base font-medium">+7 (831) 267-30-70</span>
-          </a>
-
-          <a
-            href="#contact"
-            onClick={(e) => handleNavClick(e, '#contact')}
-            className="btn-primary text-center mt-4"
-          >
-            Оставить заявку
-          </a>
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, '#contact')}
+              className="bg-accent text-white font-bold text-center py-4 rounded-xl shadow-[0_0_20px_rgba(215,25,32,0.3)] text-lg"
+            >
+              Оставить заявку
+            </a>
+          </div>
         </div>
       </div>
     </header>
