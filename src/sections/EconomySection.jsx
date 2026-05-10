@@ -50,36 +50,37 @@ export default function EconomySection() {
         </div>
 
         {/* 4 Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
           {economyCards.map((card) => (
             <div 
               key={card.id} 
-              className="bg-white border border-card-border rounded-2xl p-6 md:p-8 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(215,25,32,0.06)] transition-all duration-300 relative group flex flex-col h-full overflow-hidden"
+              className="bg-white border border-card-border rounded-xl p-5 hover:border-accent/30 hover:shadow-[0_8px_30px_rgba(215,25,32,0.06)] transition-all duration-300 relative group flex flex-col h-full"
             >
-              {/* Subtle wagon silhouette in background */}
-              <div className="absolute -right-4 -bottom-4 opacity-[0.02] group-hover:opacity-[0.04] transition-opacity duration-500 pointer-events-none transform group-hover:-translate-x-2">
-                <WagonIcon className="w-40 h-40" />
-              </div>
 
-              {/* Vertical Route Line */}
-              <div className="absolute left-6 md:left-8 top-10 bottom-10 w-[2px] bg-card-border group-hover:bg-accent/20 transition-colors" />
-
-              <div className="flex flex-col h-full relative z-10 pl-6">
+              <div className="flex flex-col h-full relative z-10">
                 
                 {/* Zone 1: Problem */}
-                <div className="mb-8 relative">
-                  <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-white border-[3px] border-accent" />
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-accent mb-1 block">
-                    Проблема
-                  </span>
-                  <h3 className="text-text-dark font-bold text-lg leading-tight">
+                <div className="mb-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-accent">
+                      Проблема
+                    </span>
+                  </div>
+                  <h3 className="text-text-dark font-bold text-base leading-tight">
                     {card.problem}
                   </h3>
                 </div>
 
+                {/* Visual Arrow Down */}
+                <div className="pl-1 mb-4 flex justify-start">
+                  <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-card-border group-hover:text-accent/30 transition-colors">
+                    <path d="M6 1V14M6 14L1 9M6 14L11 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+
                 {/* Zone 2: Solution */}
-                <div className="mb-8 relative">
-                  <div className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-white border-2 border-card-border group-hover:border-accent/50 transition-colors" />
+                <div className="mb-6">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-text-muted mb-1 block">
                     Наше решение
                   </span>
@@ -89,15 +90,13 @@ export default function EconomySection() {
                 </div>
 
                 {/* Zone 3: Benefit */}
-                <div className="mt-auto relative">
-                  <div className="absolute -left-[29.5px] top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-graphite flex items-center justify-center">
-                    <div className="w-1 h-1 bg-white rounded-full" />
-                  </div>
-                  <div className="bg-section-alt rounded-xl p-4 md:p-5 border border-card-border/50 group-hover:bg-white group-hover:border-accent/10 transition-colors">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-text-muted mb-1.5 block">
-                      Ваша выгода
-                    </span>
-                    <p className="text-text-dark font-bold text-sm md:text-base leading-snug">
+                <div className="mt-auto bg-graphite rounded-lg p-4 border border-graphite-light group-hover:border-accent/40 transition-colors">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-white/40 mb-1.5 block">
+                    Ваша выгода
+                  </span>
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0 animate-pulse" />
+                    <p className="text-white font-bold text-sm leading-snug">
                       {card.benefit}
                     </p>
                   </div>
