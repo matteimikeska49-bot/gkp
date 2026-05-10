@@ -1,7 +1,44 @@
+import { useState, useEffect } from 'react';
 import { services } from '../data/services';
-import { serviceIconMap } from '../components/ui/Icons';
+import { serviceIconMap, CloseIcon, CheckIcon } from '../components/ui/Icons';
 
 export default function ServicesSection() {
+  const [selectedService, setSelectedService] = useState(null);
+
+  useEffect(() => {
+    if (selectedService) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') setSelectedService(null);
+    };
+    window.addEventListener('keydown', handleEsc);
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, [selectedService]);
+
+  const handleCtaClick = () => {
+    setSelectedService(null);
+    setTimeout(() => {
+      const el = document.querySelector('#contact');
+      if (el) {
+        const headerOffset = 80;
+        const elementPosition = el.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
+  };
+
   return (
     <section id="services" className="bg-white section-padding">
       <div className="container-main reveal-up">
@@ -32,7 +69,7 @@ export default function ServicesSection() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                   
-                  {/* Gradient Overlay for industrial feel and text readability later if needed */}
+                  {/* Gradient Overlay for industrial feel */}
                   <div className="absolute inset-0 bg-gradient-to-t from-graphite/90 via-graphite/20 to-transparent mix-blend-multiply" />
                   <div className="absolute inset-0 bg-gradient-to-t from-graphite/90 to-transparent" />
                   
@@ -68,15 +105,15 @@ export default function ServicesSection() {
 
                   {/* Action Link */}
                   <div className="mt-auto pt-4 border-t border-card-border">
-                    <a 
-                      href="#contact" 
-                      className="inline-flex items-center gap-2 text-accent text-sm font-semibold hover:text-accent-hover transition-colors group/link"
+                    <button 
+                      onClick={() => setSelectedService(service)}
+                      className="inline-flex items-center gap-2 text-accent text-sm font-semibold hover:text-accent-hover transition-colors group/link focus:outline-none"
                     >
                       Подробнее
                       <svg className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -84,6 +121,93 @@ export default function ServicesSection() {
           })}
         </div>
       </div>
+
+      {/* Detail Modal Overlay */}
+      {selectedService && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-12">
+          {/* Overlay background */}
+          <div 
+            className="absolute inset-0 bg-[#050505]/80 backdrop-blur-sm transition-opacity"
+            onClick={() => setSelectedService(null)}
+          />
+          
+          {/* Modal Content */}
+          <div 
+            className="relative bg-white rounded-2xl md:rounded-3xl shadow-2xl w-full max-w-3xl max-h-[90vh] md:max-h-[85vh] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+            role="dialog"
+            aria-modal="true"
+          >
+            {/* Header */}
+            <div className="bg-[#1A1A1A] p-5 sm:p-8 flex items-start justify-between relative overflow-hidden shrink-0">
+              {/* Background accent */}
+              <div className="absolute inset-0 dot-pattern opacity-5" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-50" />
+              
+              <div className="relative z-10 pr-10">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-accent flex items-center justify-center text-white shadow-lg shrink-0">
+                    {(() => {
+                      const Icon = serviceIconMap[selectedService.icon];
+                      return Icon ? <Icon className="w-5 h-5 sm:w-6 sm:h-6" /> : null;
+                    })()}
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight">
+                    {selectedService.title}
+                  </h3>
+                </div>
+              </div>
+              
+              <button 
+                onClick={() => setSelectedService(null)}
+                className="relative z-10 text-white/50 hover:text-white bg-white/5 hover:bg-white/10 rounded-full p-2 transition-colors focus:outline-none"
+                aria-label="Закрыть"
+              >
+                <CloseIcon className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Body */}
+            <div className="p-6 sm:p-8 overflow-y-auto flex-1">
+              <p className="text-text-dark text-base sm:text-lg font-medium leading-relaxed mb-8">
+                {selectedService.fullDescription}
+              </p>
+
+              <div>
+                <h4 className="text-sm font-bold text-text-muted uppercase tracking-wider mb-5 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-accent" />
+                  Что входит в услугу
+                </h4>
+                
+                <ul className="space-y-3">
+                  {selectedService.includes?.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3.5 bg-section-alt border border-card-border rounded-xl p-4 transition-colors hover:border-accent/30 hover:bg-white">
+                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center mt-0.5">
+                        <CheckIcon className="w-3 h-3 text-accent" />
+                      </div>
+                      <span className="text-text-dark text-sm sm:text-base font-semibold leading-snug">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Footer CTA */}
+            <div className="bg-white p-5 sm:p-6 border-t border-card-border flex flex-col sm:flex-row items-center justify-between gap-4 shrink-0">
+              <p className="text-text-muted text-sm max-w-sm hidden sm:block font-medium">
+                Оставьте заявку, и мы бесплатно рассчитаем стоимость и предложим оптимальный маршрут.
+              </p>
+              <button 
+                onClick={handleCtaClick}
+                className="w-full sm:w-auto bg-accent hover:bg-[#b5141a] text-white font-bold px-8 py-3.5 sm:py-3 rounded-xl shadow-[0_0_15px_rgba(215,25,32,0.2)] hover:shadow-[0_0_25px_rgba(215,25,32,0.4)] hover:-translate-y-0.5 transition-all text-sm sm:text-base"
+              >
+                Получить расчёт по услуге
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
