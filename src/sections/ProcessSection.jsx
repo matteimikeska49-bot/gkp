@@ -2,7 +2,7 @@ import { processSteps } from '../data/services';
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="bg-section-light section-padding">
+    <section id="process" className="bg-white section-padding">
       <div className="container-main reveal-up">
         <div className="text-center mb-12 md:mb-16">
           <div className="accent-line mx-auto mb-4" />

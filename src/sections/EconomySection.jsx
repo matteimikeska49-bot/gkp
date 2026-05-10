@@ -2,7 +2,7 @@ import { economyData } from '../data/services';
 
 export default function EconomySection() {
   return (
-    <section className="bg-section-light section-padding">
+    <section className="bg-white section-padding">
       <div className="container-main reveal-up">
         <div className="text-center mb-12 md:mb-16">
           <div className="accent-line mx-auto mb-4" />
