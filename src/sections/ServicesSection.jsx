@@ -47,8 +47,7 @@ export default function ServicesSection() {
           <div className="accent-line mb-4" />
           <h2 className="section-title">Услуги</h2>
           <p className="section-subtitle">
-            Железнодорожные перевозки и сопровождение груза под ключ: от подбора подвижного состава
-            до документов, терминальной обработки и контроля в пути.
+            8 направлений в одном контуре ЖД-перевозки: от подбора состава и документов до терминальной обработки, схем крепления и сопровождения груза.
           </p>
         </div>
 
@@ -59,10 +58,10 @@ export default function ServicesSection() {
             return (
               <div 
                 key={service.id} 
-                className="bg-white rounded-2xl border border-card-border overflow-hidden group hover:border-accent/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col h-full"
+                className="bg-white rounded-2xl border border-card-border overflow-hidden group hover:border-accent/30 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(215,25,32,0.08)] hover:-translate-y-1 flex flex-col h-full"
               >
                 {/* Top Visual Block */}
-                <div className="h-40 relative bg-graphite overflow-hidden shrink-0">
+                <div className="h-48 relative bg-graphite overflow-hidden shrink-0">
                   <img 
                     src={service.image} 
                     alt={service.title} 
@@ -104,14 +103,14 @@ export default function ServicesSection() {
                   </ul>
 
                   {/* Action Link */}
-                  <div className="mt-auto pt-4 border-t border-card-border">
+                  <div className="mt-auto pt-5 border-t border-card-border">
                     <button 
                       onClick={() => setSelectedService(service)}
-                      className="inline-flex items-center gap-2 text-accent text-sm font-semibold hover:text-accent-hover transition-colors group/link focus:outline-none"
+                      className="inline-flex items-center gap-2 text-accent text-sm font-bold hover:text-[#b5141a] transition-colors group/link focus:outline-none w-full"
                     >
                       Подробнее
                       <svg className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
                     </button>
                   </div>
