@@ -2,9 +2,110 @@ import { useState, useEffect } from 'react';
 import { PhoneIcon, CloseIcon } from '../ui/Icons';
 import { footerServices } from '../../data/services';
 
-function RequisitesModal({ open, onClose }) {
+const legalContent = {
+  privacy: {
+    title: 'Политика конфиденциальности',
+    body: (
+      <div className="space-y-4 text-white/80 text-sm leading-relaxed">
+        <p>ООО ГК «ПАРАЛЛЕЛЬ» уважает конфиденциальность пользователей сайта и обрабатывает персональные данные в соответствии с требованиями законодательства Российской Федерации.</p>
+        <p>На сайте могут собираться следующие данные:<br/>
+        — имя;<br/>
+        — телефон;<br/>
+        — e-mail;<br/>
+        — название компании;<br/>
+        — информация о грузе, маршруте и параметрах перевозки;<br/>
+        — технические данные: IP-адрес, cookies, сведения о браузере и устройстве.</p>
+        <p>Данные используются для:<br/>
+        — обработки заявок;<br/>
+        — обратной связи с пользователем;<br/>
+        — расчёта стоимости перевозки;<br/>
+        — улучшения работы сайта;<br/>
+        — анализа эффективности рекламных и поисковых каналов.</p>
+        <p>Персональные данные не передаются третьим лицам, за исключением случаев, предусмотренных законодательством РФ, либо когда это необходимо для обработки обращения пользователя.</p>
+        <p>Пользователь может запросить уточнение, блокирование или удаление своих персональных данных, направив обращение на e-mail: info@gkparallel.ru.</p>
+        <div className="pt-4 border-t border-white/10 mt-4">
+          <p className="font-medium text-white/40 mb-2">Оператор персональных данных:</p>
+          <p>ООО ГК «ПАРАЛЛЕЛЬ»<br/>
+          ИНН: 5257182506<br/>
+          ОГРН: 1185275038794<br/>
+          Адрес: г. Н. Новгород, ул. Ракетная, 9э<br/>
+          E-mail: info@gkparallel.ru</p>
+        </div>
+      </div>
+    )
+  },
+  consent: {
+    title: 'Согласие на обработку персональных данных',
+    body: (
+      <div className="space-y-4 text-white/80 text-sm leading-relaxed">
+        <p>Оставляя заявку на сайте, пользователь подтверждает согласие на обработку своих персональных данных ООО ГК «ПАРАЛЛЕЛЬ».</p>
+        <p>Пользователь соглашается на обработку следующих данных:<br/>
+        — имя;<br/>
+        — телефон;<br/>
+        — e-mail;<br/>
+        — название компании;<br/>
+        — сведения о грузе, маршруте и параметрах перевозки;<br/>
+        — иные данные, указанные пользователем в формах сайта.</p>
+        <p>Цели обработки:<br/>
+        — обработка заявки;<br/>
+        — связь с пользователем;<br/>
+        — подготовка расчёта стоимости перевозки;<br/>
+        — направление информации по запросу пользователя;<br/>
+        — улучшение качества работы сайта и сервиса.</p>
+        <p>Согласие действует с момента отправки формы на сайте и до момента его отзыва пользователем.</p>
+        <p>Пользователь может отозвать согласие, направив письмо на e-mail: info@gkparallel.ru.</p>
+        <div className="pt-4 border-t border-white/10 mt-4">
+          <p className="font-medium text-white/40 mb-2">Оператор:</p>
+          <p>ООО ГК «ПАРАЛЛЕЛЬ»<br/>
+          ИНН: 5257182506<br/>
+          ОГРН: 1185275038794<br/>
+          Адрес: г. Н. Новгород, ул. Ракетная, 9э</p>
+        </div>
+      </div>
+    )
+  },
+  requisites: {
+    title: 'Реквизиты компании',
+    body: (
+      <div className="space-y-5">
+        <p className="text-white font-bold text-base">ООО ГК «ПАРАЛЛЕЛЬ»</p>
+        <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2.5 text-sm">
+          <span className="text-white/40 font-medium">ИНН:</span>
+          <span className="text-white/80">5257182506</span>
+          <span className="text-white/40 font-medium">КПП:</span>
+          <span className="text-white/80">525701001</span>
+          <span className="text-white/40 font-medium">ОКПО:</span>
+          <span className="text-white/80">31657828</span>
+          <span className="text-white/40 font-medium">ОГРН:</span>
+          <span className="text-white/80">1185275038794</span>
+        </div>
+        <div className="h-px bg-white/10" />
+        <div className="space-y-2.5 text-sm">
+          <div className="flex items-start gap-3">
+            <span className="text-white/40 font-medium shrink-0">Адрес:</span>
+            <span className="text-white/80">г.&nbsp;Н.&nbsp;Новгород, ул.&nbsp;Ракетная,&nbsp;9э</span>
+          </div>
+          <div className="flex items-start gap-3">
+            <span className="text-white/40 font-medium shrink-0">Тел./факс:</span>
+            <a href="tel:+79063482633" className="text-white/80 hover:text-accent transition-colors">8-906-348-26-33</a>
+          </div>
+          <div className="flex items-start gap-3">
+            <span className="text-white/40 font-medium shrink-0">Телефон:</span>
+            <a href="tel:+78312673070" className="text-white/80 hover:text-accent transition-colors">+7 (831) 267-30-70</a>
+          </div>
+          <div className="flex items-start gap-3">
+            <span className="text-white/40 font-medium shrink-0">E-mail:</span>
+            <a href="mailto:info@gkparallel.ru" className="text-white/80 hover:text-accent transition-colors">info@gkparallel.ru</a>
+          </div>
+        </div>
+      </div>
+    )
+  }
+};
+
+function LegalModal({ type, onClose }) {
   useEffect(() => {
-    if (!open) return;
+    if (!type) return;
     const handleEsc = (e) => { if (e.key === 'Escape') onClose(); };
     document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', handleEsc);
@@ -12,21 +113,23 @@ function RequisitesModal({ open, onClose }) {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleEsc);
     };
-  }, [open, onClose]);
+  }, [type, onClose]);
 
-  if (!open) return null;
+  if (!type) return null;
+
+  const content = legalContent[type];
+  if (!content) return null;
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
       <div className="absolute inset-0 bg-[#050505]/80 backdrop-blur-sm" onClick={onClose} />
       <div
-        className="relative bg-[#1A1A1A] border border-white/10 rounded-2xl shadow-2xl w-full max-w-lg max-h-[85vh] flex flex-col overflow-hidden"
+        className="relative bg-[#1A1A1A] border border-white/10 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] flex flex-col overflow-hidden"
         role="dialog"
         aria-modal="true"
       >
-        {/* Header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-white/10 shrink-0">
-          <h3 className="text-white font-bold text-lg">Реквизиты компании</h3>
+          <h3 className="text-white font-bold text-lg">{content.title}</h3>
           <button
             onClick={onClose}
             className="text-white/40 hover:text-white bg-white/5 hover:bg-white/10 rounded-full p-2 transition-colors focus:outline-none"
@@ -35,45 +138,8 @@ function RequisitesModal({ open, onClose }) {
             <CloseIcon className="w-4 h-4" />
           </button>
         </div>
-
-        {/* Body */}
-        <div className="px-6 py-6 overflow-y-auto flex-1 space-y-5">
-          <p className="text-white font-bold text-base">ООО ГК «ПАРАЛЛЕЛЬ»</p>
-
-          <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2.5 text-sm">
-            <span className="text-white/40 font-medium">ИНН:</span>
-            <span className="text-white/80">5257182506</span>
-
-            <span className="text-white/40 font-medium">КПП:</span>
-            <span className="text-white/80">525701001</span>
-
-            <span className="text-white/40 font-medium">ОКПО:</span>
-            <span className="text-white/80">31657828</span>
-
-            <span className="text-white/40 font-medium">ОГРН:</span>
-            <span className="text-white/80">1185275038794</span>
-          </div>
-
-          <div className="h-px bg-white/10" />
-
-          <div className="space-y-2.5 text-sm">
-            <div className="flex items-start gap-3">
-              <span className="text-white/40 font-medium shrink-0">Адрес:</span>
-              <span className="text-white/80">г.&nbsp;Н.&nbsp;Новгород, ул.&nbsp;Ракетная,&nbsp;9э</span>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-white/40 font-medium shrink-0">Тел./факс:</span>
-              <a href="tel:+79063482633" className="text-white/80 hover:text-accent transition-colors">8-906-348-26-33</a>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-white/40 font-medium shrink-0">Телефон:</span>
-              <a href="tel:+78312673070" className="text-white/80 hover:text-accent transition-colors">+7 (831) 267-30-70</a>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-white/40 font-medium shrink-0">E-mail:</span>
-              <a href="mailto:info@gkparallel.ru" className="text-white/80 hover:text-accent transition-colors">info@gkparallel.ru</a>
-            </div>
-          </div>
+        <div className="px-6 py-6 overflow-y-auto flex-1">
+          {content.body}
         </div>
       </div>
     </div>
@@ -81,7 +147,18 @@ function RequisitesModal({ open, onClose }) {
 }
 
 export default function Footer() {
-  const [showRequisites, setShowRequisites] = useState(false);
+  const [modalType, setModalType] = useState(null);
+
+  const openModal = (e, type) => {
+    if (e && e.preventDefault) e.preventDefault();
+    setModalType(type);
+  };
+
+  useEffect(() => {
+    const handleOpenModal = (e) => setModalType(e.detail);
+    window.addEventListener('openLegalModal', handleOpenModal);
+    return () => window.removeEventListener('openLegalModal', handleOpenModal);
+  }, []);
 
   return (
     <footer className="bg-[#1A1A1A] text-white relative overflow-hidden border-t border-accent/20">
@@ -97,7 +174,7 @@ export default function Footer() {
           {/* Company info (Takes up 4 cols on large screens) */}
           <div className="lg:col-span-4 flex flex-col">
             <div className="flex items-center gap-3 md:gap-4 mb-6">
-              <img src="/images/logo .png" alt="ГК ПАРАЛЛЕЛЬ" className="h-[36px] md:h-[44px] w-auto object-contain" />
+              <img src="/images/logo.png" alt="ГК ПАРАЛЛЕЛЬ" className="h-[36px] md:h-[44px] w-auto object-contain" />
             </div>
             
             <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-xs font-medium">
@@ -203,12 +280,12 @@ export default function Footer() {
                 </h4>
                 <ul className="space-y-3">
                   <li>
-                    <a href="#" className="text-white/40 hover:text-white/80 text-xs transition-colors">
+                    <a href="#" onClick={(e) => openModal(e, 'privacy')} className="text-white/40 hover:text-white/80 text-xs transition-colors">
                       Политика конфиденциальности
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-white/40 hover:text-white/80 text-xs transition-colors">
+                    <a href="#" onClick={(e) => openModal(e, 'consent')} className="text-white/40 hover:text-white/80 text-xs transition-colors">
                       Согласие на обработку данных
                     </a>
                   </li>
@@ -217,7 +294,7 @@ export default function Footer() {
 
               {/* Requisites button */}
               <button
-                onClick={() => setShowRequisites(true)}
+                onClick={(e) => openModal(e, 'requisites')}
                 className="flex items-center gap-2 text-white/40 hover:text-white/80 text-xs transition-colors group"
               >
                 <svg className="w-3.5 h-3.5 text-accent/40 group-hover:text-accent/70 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
@@ -241,8 +318,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Requisites Modal */}
-      <RequisitesModal open={showRequisites} onClose={() => setShowRequisites(false)} />
+      <LegalModal type={modalType} onClose={() => setModalType(null)} />
     </footer>
   );
 }
