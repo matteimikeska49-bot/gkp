@@ -90,44 +90,75 @@ export default function RealCargoSection() {
   };
 
   return (
-    <section id="real-cargo" className="relative overflow-hidden" style={{ background: '#0E1116' }}>
+    <section id="real-cargo" className="relative overflow-hidden bg-graphite-dark">
       {/* ── Background layer ── */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Rail pattern lines */}
-        <div className="absolute top-0 left-0 w-full h-full opacity-[0.03]"
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Base dark gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0b0d] via-[#111318] to-[#0a0b0d]" />
+
+        {/* Technical Grid Pattern */}
+        <div className="absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: 'repeating-linear-gradient(90deg, #ffffff 0px, #ffffff 1px, transparent 1px, transparent 80px)',
+            backgroundImage: `
+              linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 1) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px',
+            backgroundPosition: 'center top'
           }}
         />
-        {/* Red radial glow — top right */}
-        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(215,25,32,0.06) 0%, transparent 70%)' }}
+
+        {/* Abstract Perspective Rails (Bottom) */}
+        <div className="absolute bottom-0 left-0 w-full h-[50vh] opacity-[0.05] mix-blend-overlay"
+          style={{
+            background: `
+              repeating-linear-gradient(
+                to right,
+                transparent,
+                transparent 49.5%,
+                rgba(255,255,255,1) 49.8%,
+                rgba(255,255,255,1) 50.2%,
+                transparent 50.5%,
+                transparent 100%
+              )
+            `,
+            backgroundSize: '150px 100%',
+            transform: 'perspective(1000px) rotateX(75deg) scale(2.5)',
+            transformOrigin: 'bottom center',
+          }}
         />
-        {/* Subtle red glow — bottom left */}
-        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(215,25,32,0.04) 0%, transparent 70%)' }}
+
+        {/* Soft Red Ambient Glows */}
+        {/* Top Right Glow */}
+        <div className="absolute -top-[20%] -right-[10%] w-[60%] h-[60%] rounded-full opacity-60 blur-[120px] pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(215,25,32,0.1) 0%, transparent 70%)' }}
         />
-        {/* Top border line */}
-        <div className="absolute top-0 left-0 w-full h-px" style={{ background: 'rgba(255,255,255,0.06)' }} />
+        {/* Bottom Left Glow */}
+        <div className="absolute -bottom-[20%] -left-[10%] w-[50%] h-[50%] rounded-full opacity-50 blur-[100px] pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(215,25,32,0.08) 0%, transparent 70%)' }}
+        />
+        
+        {/* Top border line with subtle glow */}
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      <div className="container-main relative z-10 py-16 md:py-24">
+      <div className="container-main relative z-10 pt-24 pb-16 md:pt-32 md:pb-24">
 
         {/* ── Section header ── */}
-        <div className="mb-10 md:mb-14 max-w-3xl">
+        <div className="mb-12 md:mb-16 max-w-4xl">
           {/* Label */}
-          <div className="flex items-center gap-2.5 mb-5">
-            <div className="w-6 h-px bg-accent" />
-            <span className="text-accent text-[11px] font-bold uppercase tracking-[0.18em]">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-[2px] bg-accent" />
+            <span className="text-accent text-xs font-bold uppercase tracking-[0.2em]">
               Реальные перевозки
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-[2.6rem] font-bold text-white leading-tight mb-5">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-bold text-white leading-[1.1] mb-6 tracking-tight">
             Берёмся за грузы,<br className="hidden sm:block" /> где обычной перевозки недостаточно
           </h2>
 
-          <p className="text-white/50 text-sm md:text-base leading-relaxed max-w-2xl">
+          <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-3xl font-medium">
             Сложный груз не прощает случайных подрядчиков. Мы заранее учитываем габариты, крепление, станцию, документы и сроки подачи состава — чтобы перевозка не превращалась в простой, доплаты и переносы.
           </p>
         </div>
