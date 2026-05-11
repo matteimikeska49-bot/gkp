@@ -52,16 +52,8 @@ export default function Header() {
         <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 md:gap-4 group" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
-            {/* Rail lines logo mark */}
-            <div className="flex flex-col gap-[3px]">
-              <div className="w-6 md:w-8 h-[3px] bg-accent rounded-full transition-transform group-hover:translate-x-0.5" />
-              <div className="w-4 md:w-5 h-[3px] bg-accent rounded-full transition-transform group-hover:translate-x-1" />
-              <div className="w-6 md:w-8 h-[3px] bg-accent rounded-full transition-transform group-hover:translate-x-0.5" />
-            </div>
-            <div>
-              <div className="text-white font-bold text-base md:text-xl tracking-wide leading-tight group-hover:text-white/90 transition-colors">
-                ГК ПАРАЛЛЕЛЬ
-              </div>
+            <img src="/images/logo .png" alt="ГК ПАРАЛЛЕЛЬ" className="h-[28px] md:h-[36px] w-auto object-contain transition-opacity group-hover:opacity-90" />
+            <div className="hidden sm:block">
               <div className="text-white/50 text-[9px] md:text-[11px] tracking-wider uppercase leading-tight mt-0.5">
                 Железнодорожные перевозки грузов
               </div>

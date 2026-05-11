@@ -97,14 +97,7 @@ export default function Footer() {
           {/* Company info (Takes up 4 cols on large screens) */}
           <div className="lg:col-span-4 flex flex-col">
             <div className="flex items-center gap-3 md:gap-4 mb-6">
-              <div className="flex flex-col gap-[3px]">
-                <div className="w-8 h-[3px] bg-accent rounded-full" />
-                <div className="w-5 h-[3px] bg-accent rounded-full" />
-                <div className="w-8 h-[3px] bg-accent rounded-full" />
-              </div>
-              <div>
-                <div className="font-bold text-xl tracking-wide leading-tight">ГК ПАРАЛЛЕЛЬ</div>
-              </div>
+              <img src="/images/logo .png" alt="ГК ПАРАЛЛЕЛЬ" className="h-[36px] md:h-[44px] w-auto object-contain" />
             </div>
             
             <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-xs font-medium">
