@@ -4,6 +4,7 @@ import HeroSection from './sections/HeroSection';
 import AdvantagesStrip from './sections/AdvantagesStrip';
 import PainSection from './sections/PainSection';
 import ServicesSection from './sections/ServicesSection';
+import RealCargoSection from './sections/RealCargoSection';
 import MovementSection from './sections/MovementSection';
 import EconomySection from './sections/EconomySection';
 import TransparencySection from './sections/TransparencySection';
@@ -24,6 +25,7 @@ export default function App() {
         <AdvantagesStrip />
         <PainSection />
         <ServicesSection />
+        <RealCargoSection />
         <MovementSection />
         <EconomySection />
         <TransparencySection />
