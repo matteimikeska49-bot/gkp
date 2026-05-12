@@ -41,7 +41,7 @@ export default function PainSection() {
         </div>
 
         {/* 3 Result Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-10">
           
           {/* Card 1 */}
           <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/[0.06] hover:border-accent/30 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group flex flex-col">
