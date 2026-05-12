@@ -1,6 +1,7 @@
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import CookieBanner from './components/ui/CookieBanner';
+import DemoCountdownBanner from './components/DemoCountdownBanner';
 import HeroSection from './sections/HeroSection';
 import AdvantagesStrip from './sections/AdvantagesStrip';
 import PainSection from './sections/PainSection';
@@ -37,6 +38,7 @@ export default function App() {
       </main>
       <Footer />
       <CookieBanner />
+      <DemoCountdownBanner />
     </div>
   );
 }
