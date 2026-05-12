@@ -85,7 +85,7 @@ export default function CTASection() {
             {/* Form Glow */}
             <div className="absolute inset-0 bg-accent/10 rounded-3xl blur-[80px] pointer-events-none" />
 
-            <div className="relative bg-[#1A1A1A]/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-10 shadow-2xl">
+            <div id="contact-form" className="relative bg-[#1A1A1A]/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-10 shadow-2xl scroll-mt-28">
               <div className="mb-6 flex items-center justify-between">
                 <h3 className="text-white font-bold text-xl">
                   Заявка на расчёт

@@ -87,8 +87,8 @@ export default function Header() {
               +7 (831) 267-30-70
             </a>
             <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, '#contact')}
+              href="#contact-form"
+              onClick={(e) => handleNavClick(e, '#contact-form')}
               className="bg-accent hover:bg-[#b5141a] text-white text-sm font-bold px-6 py-2.5 rounded-lg transition-all shadow-[0_0_15px_rgba(215,25,32,0.2)] hover:shadow-[0_0_25px_rgba(215,25,32,0.4)] hover:-translate-y-0.5"
             >
               Оставить заявку
@@ -137,8 +137,8 @@ export default function Header() {
             </a>
 
             <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, '#contact')}
+              href="#contact-form"
+              onClick={(e) => handleNavClick(e, '#contact-form')}
               className="bg-accent text-white font-bold text-center py-4 rounded-xl shadow-[0_0_20px_rgba(215,25,32,0.3)] text-lg"
             >
               Оставить заявку

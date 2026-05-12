@@ -72,7 +72,7 @@ export default function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <a href="#contact" className="btn-primary text-base px-8 py-3.5">
+              <a href="#contact-form" className="btn-primary text-base px-8 py-3.5">
                 Получить расчёт перевозки
               </a>
               <a href="#services" className="btn-outline text-base px-8 py-3.5">

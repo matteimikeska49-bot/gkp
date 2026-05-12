@@ -158,7 +158,7 @@ const RailwaySilhouette = () => (
 
 export default function RealCargoSection() {
   const handleCtaClick = () => {
-    const el = document.querySelector('#contact');
+    const el = document.querySelector('#contact-form');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 

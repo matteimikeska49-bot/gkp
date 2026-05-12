@@ -277,7 +277,7 @@ export default function Footer() {
               Сотрудничество
             </h4>
             
-            <a href="#contact" className="bg-white/5 hover:bg-accent border border-white/10 hover:border-accent text-white font-bold text-sm px-6 py-4 rounded-xl transition-all duration-300 text-center shadow-lg mb-8 inline-block">
+            <a href="#contact-form" className="bg-white/5 hover:bg-accent border border-white/10 hover:border-accent text-white font-bold text-sm px-6 py-4 rounded-xl transition-all duration-300 text-center shadow-lg mb-8 inline-block">
               Получить расчёт
             </a>
 

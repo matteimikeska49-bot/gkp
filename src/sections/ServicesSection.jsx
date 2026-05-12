@@ -26,7 +26,7 @@ export default function ServicesSection() {
   const handleCtaClick = () => {
     setSelectedService(null);
     setTimeout(() => {
-      const el = document.querySelector('#contact');
+      const el = document.querySelector('#contact-form');
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
       }
