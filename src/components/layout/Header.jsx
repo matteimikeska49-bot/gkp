@@ -50,11 +50,14 @@ export default function Header() {
     >
       <div className="container-main">
         <div className="flex items-center justify-between h-14 md:h-16">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-3 md:gap-4 group" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
-            <img src="/images/logo.png" alt="ГК ПАРАЛЛЕЛЬ" className="h-[28px] md:h-[36px] w-auto object-contain transition-opacity group-hover:opacity-90" />
-            <div className="hidden sm:block">
-              <div className="text-white/50 text-[9px] md:text-[11px] tracking-wider uppercase leading-tight mt-0.5">
+          {/* Logo & Brand Block */}
+          <a href="#" className="flex items-center gap-2.5 md:gap-3.5 group shrink-0" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+            <img src="/images/logo.png" alt="" className="h-[28px] md:h-[36px] w-auto object-contain transition-opacity group-hover:opacity-90 shrink-0" />
+            <div className="flex flex-col justify-center">
+              <div className="text-white font-bold text-[14px] md:text-[16px] leading-none tracking-wide mb-[3px] md:mb-1">
+                ГК ПАРАЛЛЕЛЬ
+              </div>
+              <div className="text-white/50 text-[7px] sm:text-[9px] md:text-[10px] tracking-[0.06em] uppercase leading-none hidden min-[370px]:block">
                 Железнодорожные перевозки грузов
               </div>
             </div>
