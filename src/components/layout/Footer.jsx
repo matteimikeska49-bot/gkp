@@ -173,12 +173,20 @@ export default function Footer() {
           
           {/* Company info (Takes up 4 cols on large screens) */}
           <div className="lg:col-span-4 flex flex-col">
-            <div className="flex items-center gap-3 md:gap-4 mb-6">
-              <img src="/images/logo.png" alt="ГК ПАРАЛЛЕЛЬ" className="h-[36px] md:h-[44px] w-auto object-contain" />
+            <div className="flex items-center gap-3 mb-4">
+              <img src="/images/logo.png" alt="" className="h-[36px] md:h-[42px] w-auto object-contain shrink-0" />
+              <div className="flex flex-col justify-center">
+                <div className="text-white font-bold text-[15px] md:text-[17px] leading-none tracking-wide mb-1">
+                  ГК ПАРАЛЛЕЛЬ
+                </div>
+                <div className="text-white/50 text-[8px] sm:text-[9px] md:text-[10px] tracking-[0.06em] uppercase leading-none">
+                  Железнодорожные перевозки грузов
+                </div>
+              </div>
             </div>
             
             <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-xs font-medium">
-              Железнодорожные перевозки грузов по России и СНГ. Комплексное сопровождение на всех этапах маршрута.
+              Перевозки грузов по&nbsp;России и&nbsp;СНГ. Комплексное сопровождение на&nbsp;всех этапах маршрута.
             </p>
 
             {/* Contact Block */}
