@@ -146,11 +146,13 @@ export default function CTASection() {
                     type="submit"
                     className="w-full btn-primary py-4 text-base font-bold shadow-[0_0_20px_rgba(215,25,32,0.3)] hover:shadow-[0_0_30px_rgba(215,25,32,0.5)] transition-all duration-300"
                   >
-                    Получить расчёт и план оптимизации
+                    <span className="sm:hidden">Получить расчёт</span>
+                    <span className="hidden sm:inline">Получить расчёт и план оптимизации</span>
                   </button>
-                  <p className="text-white/40 text-[13px] text-center mt-4 flex items-center justify-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                    Ответим в течение 15 минут. Расчёт и план — до 2 часов.
+                  <p className="text-white/40 text-[13px] text-center mt-4 flex items-center justify-center gap-2 max-w-xs mx-auto leading-snug">
+                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse shrink-0" />
+                    <span className="sm:hidden">Ответим за 15 минут. Расчёт — до 2 часов.</span>
+                    <span className="hidden sm:inline">Ответим в течение 15 минут. Расчёт и план — до 2 часов.</span>
                   </p>
                 </div>
               </form>
