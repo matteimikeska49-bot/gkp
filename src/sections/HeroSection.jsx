@@ -61,14 +61,14 @@ export default function HeroSection() {
               <span className="text-accent">под&nbsp;ключ</span>
             </h1>
 
-            <p className="text-white/75 text-[0.938rem] md:text-lg leading-relaxed mb-3 max-w-xl">
+            <p className="text-white/75 text-[0.9rem] md:text-[1rem] lg:text-lg leading-relaxed mb-4 max-w-lg">
               Берём на себя не только отправку по сети РЖД, но и подбор подвижного состава, документы,
               схемы крепления, терминальные операции, сопровождение и контроль груза в пути.
             </p>
 
-            <p className="text-white/50 text-sm leading-relaxed mb-7 max-w-xl">
-              ГК «Параллель» организует железнодорожные перевозки грузов по России и СНГ: от расчёта
-              маршрута и подачи вагона до оформления документов, погрузки, крепления и отслеживания груза.
+            <p className="text-white/50 text-[0.8rem] md:text-sm lg:text-[0.938rem] leading-relaxed mb-7 max-w-lg">
+              ГК&nbsp;«Параллель» помогает грузоотправителю пройти весь маршрут без разрозненных
+              подрядчиков: от расчёта перевозки и подачи вагона до закрывающих документов.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
