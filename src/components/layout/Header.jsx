@@ -64,13 +64,13 @@ export default function Header() {
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden xl:flex items-center gap-6">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="text-white/70 hover:text-white text-sm font-semibold transition-colors relative after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:h-[2px] after:bg-accent after:transition-all hover:after:w-full"
+                className="text-white/70 hover:text-white text-sm font-semibold transition-colors whitespace-nowrap relative after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:h-[2px] after:bg-accent after:transition-all hover:after:w-full"
               >
                 {item.label}
               </a>
@@ -78,10 +78,10 @@ export default function Header() {
           </nav>
 
           {/* Phone + CTA */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden xl:flex items-center gap-5">
             <a
               href="tel:+78312673070"
-              className="flex items-center gap-2 text-white hover:text-accent transition-colors font-bold text-sm md:text-base tracking-wide"
+              className="flex items-center gap-2 text-white hover:text-accent transition-colors font-bold text-sm md:text-base tracking-wide whitespace-nowrap"
             >
               <PhoneIcon className="w-4 h-4 text-accent" />
               +7 (831) 267-30-70
@@ -89,7 +89,7 @@ export default function Header() {
             <a
               href="#contact-form"
               onClick={(e) => handleNavClick(e, '#contact-form')}
-              className="bg-accent hover:bg-[#b5141a] text-white text-sm font-bold px-6 py-2.5 rounded-lg transition-all shadow-[0_0_15px_rgba(215,25,32,0.2)] hover:shadow-[0_0_25px_rgba(215,25,32,0.4)] hover:-translate-y-0.5"
+              className="bg-accent hover:bg-[#b5141a] text-white text-sm font-bold px-5 py-2.5 rounded-lg transition-all whitespace-nowrap shadow-[0_0_15px_rgba(215,25,32,0.2)] hover:shadow-[0_0_25px_rgba(215,25,32,0.4)] hover:-translate-y-0.5"
             >
               Оставить заявку
             </a>
@@ -98,7 +98,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden text-white p-2 focus:outline-none"
+            className="xl:hidden text-white p-2 focus:outline-none"
             aria-label={mobileOpen ? 'Закрыть меню' : 'Открыть меню'}
           >
             {mobileOpen ? <CloseIcon className="w-7 h-7" /> : <MenuIcon className="w-7 h-7" />}
@@ -108,7 +108,7 @@ export default function Header() {
 
       {/* Mobile menu overlay */}
       <div
-        className={`lg:hidden fixed inset-x-0 top-[64px] bottom-0 bg-[#1A1A1A] transition-all duration-300 z-40 overflow-y-auto ${
+        className={`xl:hidden fixed inset-x-0 top-[64px] bottom-0 bg-[#1A1A1A] transition-all duration-300 z-40 overflow-y-auto ${
           mobileOpen ? 'opacity-100 visible translate-x-0' : 'opacity-0 invisible translate-x-full'
         }`}
       >
