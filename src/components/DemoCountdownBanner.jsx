@@ -59,9 +59,9 @@ export default function DemoCountdownBanner() {
         {/* Label */}
         <span
           style={{
-            color: 'rgba(255,255,255,0.45)',
-            fontSize: '12px',
-            fontWeight: 500,
+            color: 'rgba(255,255,255,0.55)',
+            fontSize: '13px',
+            fontWeight: 600,
             whiteSpace: 'nowrap',
             letterSpacing: '0.01em',
           }}
@@ -74,9 +74,9 @@ export default function DemoCountdownBanner() {
           style={{
             display: 'flex',
             alignItems: 'baseline',
-            gap: '5px',
-            fontSize: '13px',
-            fontWeight: 600,
+            gap: '6px',
+            fontSize: '15px',
+            fontWeight: 700,
             fontVariantNumeric: 'tabular-nums',
             lineHeight: 1,
             whiteSpace: 'nowrap',
