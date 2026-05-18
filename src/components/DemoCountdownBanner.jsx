@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-// Фиксированный дедлайн: 5 дней от текущего момента
-const DELETE_AT = new Date('2026-05-23T11:23:00+03:00').getTime();
+// Фиксированный дедлайн: 22 часа от текущего момента
+const DELETE_AT = new Date('2026-05-19T09:30:00+03:00').getTime();
 
 function getTimeLeft() {
   const diff = DELETE_AT - Date.now();
