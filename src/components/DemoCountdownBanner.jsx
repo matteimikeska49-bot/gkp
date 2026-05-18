@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
-// Фиксированный дедлайн: 4.5 дня от 2026-05-12 16:00+03:00
-const DELETE_AT = new Date('2026-05-17T04:00:00+03:00').getTime();
+// Фиксированный дедлайн: 5 дней от текущего момента
+const DELETE_AT = new Date('2026-05-23T11:23:00+03:00').getTime();
 
 function getTimeLeft() {
   const diff = DELETE_AT - Date.now();
-  if (diff <= 0) return null;
+  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
   const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
   const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -25,22 +25,12 @@ export default function DemoCountdownBanner() {
     return () => clearInterval(timer);
   }, []);
 
-  if (!timeLeft) return null;
-
   return (
     <div
-      className="fixed z-[80]"
-      style={{
-        bottom: '16px',
-        right: '16px',
-        left: 'auto',
-        maxWidth: '560px',
-        width: 'calc(100% - 32px)',
-      }}
+      className="fixed z-[80] bottom-[12px] right-[12px] left-[12px] md:left-auto md:bottom-[16px] md:right-[16px] max-w-full md:max-w-[560px]"
       role="complementary"
       aria-label="Страница будет удалена"
     >
-      {/* Responsive: on small screens takes full bottom width with 16px margins */}
       <div
         style={{
           background: 'linear-gradient(90deg, #16191f 0%, #1a1d24 100%)',
@@ -82,12 +72,8 @@ export default function DemoCountdownBanner() {
             whiteSpace: 'nowrap',
           }}
         >
-          {timeLeft.days > 0 && (
-            <>
-              <span style={{ color: '#fff' }}>{timeLeft.days}&nbsp;дн</span>
-              <span style={{ color: 'rgba(255,255,255,0.2)' }}>·</span>
-            </>
-          )}
+          <span style={{ color: '#fff' }}>{pad(timeLeft.days)}&nbsp;дн</span>
+          <span style={{ color: 'rgba(255,255,255,0.2)' }}>·</span>
           <span style={{ color: '#fff' }}>{pad(timeLeft.hours)}&nbsp;ч</span>
           <span style={{ color: 'rgba(255,255,255,0.2)' }}>·</span>
           <span style={{ color: '#fff' }}>{pad(timeLeft.minutes)}&nbsp;мин</span>
@@ -98,3 +84,4 @@ export default function DemoCountdownBanner() {
     </div>
   );
 }
+
